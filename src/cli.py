@@ -81,6 +81,6 @@ with open(file_path, "r", encoding="utf-8") as file:
 
 
 print(param_classes)
-# with open("cwa-opedata-api-spec.json", "w", encoding="utf-8") as file:
+# with open("cwa-opendata-api-spec.json", "w", encoding="utf-8") as file:
 #     file.write(json.dumps(apis, indent=2, ensure_ascii=False))
 # 這裡可以進行更多的處理，比如搜索特定的元素或提取特定的數據
