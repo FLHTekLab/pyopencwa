@@ -31,7 +31,7 @@ for filename in filenames:
             for row in params_table.find_all("tr")[1:]:  # Skip header row
                 param = {}
                 name_col, desc_col = row.find_all("td")
-                param['name'] = name_col.find("div", class_="parameter__name").get_text(strip=True)
+                param['name'] = name_col.find("div", class_="parameter__name").get_text(strip=True).replace('*', '')
                 param['required'] = 'required' in name_col.find("div", class_="parameter__name").get('class', [])
                 param['type'] = name_col.find("div", class_="parameter__type").get_text(strip=True)
                 param['description'] = desc_col.get_text(strip=True)

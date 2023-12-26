@@ -6,7 +6,7 @@
       "description": "臺灣各縣市天氣預報資料及國際都市天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -73,7 +73,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -146,7 +146,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -219,7 +219,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -292,7 +292,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -365,7 +365,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -438,7 +438,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -511,7 +511,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -584,7 +584,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -657,7 +657,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -730,7 +730,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -803,7 +803,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -876,7 +876,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -949,7 +949,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1022,7 +1022,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1095,7 +1095,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1168,7 +1168,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1241,7 +1241,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1314,7 +1314,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1387,7 +1387,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1460,7 +1460,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1533,7 +1533,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1606,7 +1606,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1679,7 +1679,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1752,7 +1752,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1825,7 +1825,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1898,7 +1898,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -1971,7 +1971,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2044,7 +2044,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2117,7 +2117,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2190,7 +2190,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2263,7 +2263,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2336,7 +2336,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2409,7 +2409,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2482,7 +2482,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2555,7 +2555,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2628,7 +2628,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2701,7 +2701,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2774,7 +2774,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2847,7 +2847,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2920,7 +2920,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -2993,7 +2993,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3066,7 +3066,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3139,7 +3139,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3212,7 +3212,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3285,7 +3285,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3358,7 +3358,7 @@
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來1週天氣預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3431,7 +3431,7 @@
       "description": "鄉鎮天氣預報可跨縣市截取單一鄉鎮市區預報資料因應系統負載最多一次可擷取 5 個指定縣市之單一鄉鎮市區預報資料，最少1 個指定縣市之單一鄉鎮市區預報資料。",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3455,7 +3455,7 @@
           "description": "回傳資料格式，預設為 json 格式Available values: JSON, XML--JSONXML"
         },
         {
-          "name": "locationId*",
+          "name": "locationId",
           "required": true,
           "type": "array[string]",
           "description": "單一鄉鎮市區預報資料之資料項編號:F-D0047-001至F-D0047-091(單號)，最多五個欄位，最少一個欄位Available values: F-D0047-001, F-D0047-003, F-D0047-005, F-D0047-007, F-D0047-009, F-D0047-011, F-D0047-013, F-D0047-015, F-D0047-017, F-D0047-019, F-D0047-021, F-D0047-023, F-D0047-025, F-D0047-027, F-D0047-029, F-D0047-031, F-D0047-033, F-D0047-035, F-D0047-037, F-D0047-039, F-D0047-041, F-D0047-043, F-D0047-045, F-D0047-047, F-D0047-049, F-D0047-051, F-D0047-053, F-D0047-055, F-D0047-057, F-D0047-059, F-D0047-061, F-D0047-063, F-D0047-065, F-D0047-067, F-D0047-069, F-D0047-071, F-D0047-073, F-D0047-075, F-D0047-077, F-D0047-079, F-D0047-081, F-D0047-083, F-D0047-085, F-D0047-087, F-D0047-089, F-D0047-091F-D0047-001F-D0047-003F-D0047-005F-D0047-007F-D0047-009F-D0047-011F-D0047-013F-D0047-015F-D0047-017F-D0047-019F-D0047-021F-D0047-023F-D0047-025F-D0047-027F-D0047-029F-D0047-031F-D0047-033F-D0047-035F-D0047-037F-D0047-039F-D0047-041F-D0047-043F-D0047-045F-D0047-047F-D0047-049F-D0047-051F-D0047-053F-D0047-055F-D0047-057F-D0047-059F-D0047-061F-D0047-063F-D0047-065F-D0047-067F-D0047-069F-D0047-071F-D0047-073F-D0047-075F-D0047-077F-D0047-079F-D0047-081F-D0047-083F-D0047-085F-D0047-087F-D0047-089F-D0047-091"
@@ -3510,7 +3510,7 @@
       "description": "未來1個月潮汐預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3595,7 +3595,7 @@
       "description": "健康氣象相關預報資料-冷傷害指數及警示全臺各鄉鎮五日預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3668,7 +3668,7 @@
       "description": "健康氣象相關數值預報資料-熱傷害分級與綜合溫度熱指數",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3741,7 +3741,7 @@
       "description": "健康氣象相關預報資料-健康氣象溫差提醒指數及警示全臺各鄉鎮五日預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3814,7 +3814,7 @@
       "description": "健康氣象相關數值預報資料-健康氣象溫差提醒指數及警示全臺各鄉鎮未來72小時逐3小時預報",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3889,7 +3889,7 @@
       "description": "自動氣象站資料-無人自動站氣象資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3944,7 +3944,7 @@
       "description": "自動雨量站資料-無人自動站雨量資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -3999,7 +3999,7 @@
       "description": "現在天氣觀測報告-有人氣象站資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4054,7 +4054,7 @@
       "description": "氣象站每日酸雨pH值-每月各站的資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4127,7 +4127,7 @@
       "description": "氣象站每日紫外線指數最大值-每天下午2時左右會提供各站紫外線的當日最大值",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4164,7 +4164,7 @@
       "description": "臭氧總量觀測資料-臭氧總量觀測資料(台北)",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4213,7 +4213,7 @@
       "description": "海象監測資料-48小時浮標站與潮位站海況監測資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4280,7 +4280,7 @@
       "description": "海象監測資料-30天浮標站與潮位站海況監測資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4349,7 +4349,7 @@
       "description": "海嘯資訊資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4416,7 +4416,7 @@
       "description": "顯著有感地震報告",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4483,7 +4483,7 @@
       "description": "提供顯著有感地震報告資料-英文版地震報告",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4550,7 +4550,7 @@
       "description": "小區域有感地震報告",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4617,7 +4617,7 @@
       "description": "提供小區域有感地震報告資料-英文版地震報告",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4686,7 +4686,7 @@
       "description": "地面測站每日雨量資料-每日雨量",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4753,7 +4753,7 @@
       "description": "月平均-地面測站資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4802,7 +4802,7 @@
       "description": "氣象測站基本資料-有人氣象測站基本資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4845,7 +4845,7 @@
       "description": "氣象測站基本資料-無人氣象測站基本資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4890,7 +4890,7 @@
       "description": "天氣特報-各別縣市地區目前之天氣警特報情形",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4933,7 +4933,7 @@
       "description": "天氣特報-各別天氣警特報之內容及所影響之區域",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -4976,7 +4976,7 @@
       "description": "西北太平洋地區及南海目前所有活動中熱帶氣旋之資訊-熱帶性低氣壓及颱風過去、現在及未來預報之資訊",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -5051,7 +5051,7 @@
       "description": "健康氣象相關數值預報資料-熱傷害分級與綜合溫度熱指數",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -5126,7 +5126,7 @@
       "description": "全臺各縣市每天的日出、日沒及太陽過中天等時刻資料含有日出日沒時之方位及過中天時之仰角資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
@@ -5193,7 +5193,7 @@
       "description": "全臺各縣市每天的月出、月沒及月球過中天等時刻資料含有月出月沒時之方位及過中天時之仰角資料",
       "parameters": [
         {
-          "name": "Authorization*",
+          "name": "Authorization",
           "required": true,
           "type": "string",
           "description": "氣象開放資料平台會員授權碼"
