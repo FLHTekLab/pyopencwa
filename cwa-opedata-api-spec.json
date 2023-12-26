@@ -1,0 +1,320 @@
+{
+  "預報": [
+    {
+      "path": "/v1/rest/datastore/F-C0032-001",
+      "description": "一般天氣預報-今明 36 小時天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-001",
+      "description": "鄉鎮天氣預報-宜蘭縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-003",
+      "description": "鄉鎮天氣預報-宜蘭縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-005",
+      "description": "鄉鎮天氣預報-桃園市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-007",
+      "description": "鄉鎮天氣預報-桃園市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-009",
+      "description": "鄉鎮天氣預報-新竹縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-011",
+      "description": "鄉鎮天氣預報-新竹縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-013",
+      "description": "鄉鎮天氣預報-苗栗縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-015",
+      "description": "鄉鎮天氣預報-苗栗縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-017",
+      "description": "鄉鎮天氣預報-彰化縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-019",
+      "description": "鄉鎮天氣預報-彰化縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-021",
+      "description": "鄉鎮天氣預報-南投縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-023",
+      "description": "鄉鎮天氣預報-南投縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-025",
+      "description": "鄉鎮天氣預報-雲林縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-027",
+      "description": "鄉鎮天氣預報-雲林縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-029",
+      "description": "鄉鎮天氣預報-嘉義縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-031",
+      "description": "鄉鎮天氣預報-嘉義縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-033",
+      "description": "鄉鎮天氣預報-屏東縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-035",
+      "description": "鄉鎮天氣預報-屏東縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-037",
+      "description": "鄉鎮天氣預報-臺東縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-039",
+      "description": "鄉鎮天氣預報-臺東縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-041",
+      "description": "鄉鎮天氣預報-花蓮縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-043",
+      "description": "鄉鎮天氣預報-花蓮縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-045",
+      "description": "鄉鎮天氣預報-澎湖縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-047",
+      "description": "鄉鎮天氣預報-澎湖縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-049",
+      "description": "鄉鎮天氣預報-基隆市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-051",
+      "description": "鄉鎮天氣預報-基隆市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-053",
+      "description": "鄉鎮天氣預報-新竹市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-055",
+      "description": "鄉鎮天氣預報-新竹市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-057",
+      "description": "鄉鎮天氣預報-嘉義市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-059",
+      "description": "鄉鎮天氣預報-嘉義市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-061",
+      "description": "鄉鎮天氣預報-臺北市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-063",
+      "description": "鄉鎮天氣預報-臺北市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-065",
+      "description": "鄉鎮天氣預報-高雄市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-067",
+      "description": "鄉鎮天氣預報-高雄市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-069",
+      "description": "鄉鎮天氣預報-新北市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-071",
+      "description": "鄉鎮天氣預報-新北市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-073",
+      "description": "鄉鎮天氣預報-臺中市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-075",
+      "description": "鄉鎮天氣預報-臺中市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-077",
+      "description": "鄉鎮天氣預報-臺南市未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-079",
+      "description": "鄉鎮天氣預報-臺南市未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-081",
+      "description": "鄉鎮天氣預報-連江縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-083",
+      "description": "鄉鎮天氣預報-連江縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-085",
+      "description": "鄉鎮天氣預報-金門縣未來2天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-087",
+      "description": "鄉鎮天氣預報-金門縣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-089",
+      "description": "鄉鎮天氣預報-臺灣未來 2 天天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-091",
+      "description": "鄉鎮天氣預報-臺灣未來1週天氣預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-D0047-093",
+      "description": "鄉鎮天氣預報-全臺灣各鄉鎮市區預報資料"
+    },
+    {
+      "path": "/v1/rest/datastore/F-A0021-001",
+      "description": "潮汐預報-未來 1 個月潮汐預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-A0085-002",
+      "description": "健康氣象冷傷害指數及警示全臺各鄉鎮五日預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-A0085-003",
+      "description": "健康氣象冷傷害指數及警示全臺各鄉鎮未來72小時逐3小時預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-A0085-004",
+      "description": "健康氣象溫差提醒指數及警示全臺各鄉鎮五日預報"
+    },
+    {
+      "path": "/v1/rest/datastore/F-A0085-005",
+      "description": "健康氣象溫差提醒指數及警示全臺各鄉鎮未來72小時逐3小時預報"
+    }
+  ],
+  "觀測": [
+    {
+      "path": "/v1/rest/datastore/O-A0001-001",
+      "description": "自動氣象站-氣象觀測資料"
+    },
+    {
+      "path": "/v1/rest/datastore/O-A0002-001",
+      "description": "自動雨量站-雨量觀測資料"
+    },
+    {
+      "path": "/v1/rest/datastore/O-A0003-001",
+      "description": "現在天氣觀測報告-現在天氣觀測報告"
+    },
+    {
+      "path": "/v1/rest/datastore/O-A0004-001",
+      "description": "酸雨 pH 值-每日酸雨 pH 值"
+    },
+    {
+      "path": "/v1/rest/datastore/O-A0005-001",
+      "description": "紫外線指數-每日紫外線指數最大值"
+    },
+    {
+      "path": "/v1/rest/datastore/O-A0006-002",
+      "description": "臭氧總量觀測資料-台北站"
+    },
+    {
+      "path": "/v1/rest/datastore/O-B0075-001",
+      "description": "海象監測資料-48小時浮標站與潮位站海況監測資料"
+    },
+    {
+      "path": "/v1/rest/datastore/O-B0075-002",
+      "description": "海象監測資料-30天浮標站與潮位站海況監測資料"
+    }
+  ],
+  "地震海嘯": [
+    {
+      "path": "/v1/rest/datastore/E-A0014-001",
+      "description": "海嘯資訊資料-海嘯資訊資料"
+    },
+    {
+      "path": "/v1/rest/datastore/E-A0015-001",
+      "description": "顯著有感地震報告資料-顯著有感地震報告"
+    },
+    {
+      "path": "/v1/rest/datastore/E-A0015-002",
+      "description": "顯著有感地震報告資料-顯著有感地震報告(英文)"
+    },
+    {
+      "path": "/v1/rest/datastore/E-A0016-001",
+      "description": "小區域有感地震報告資料-小區域有感地震報告"
+    },
+    {
+      "path": "/v1/rest/datastore/E-A0016-002",
+      "description": "小區域有感地震報告資料-小區域有感地震報告(英文)"
+    }
+  ],
+  "氣候": [
+    {
+      "path": "/v1/rest/datastore/C-B0025-001",
+      "description": "每日雨量-地面測站每日雨量資料"
+    },
+    {
+      "path": "/v1/rest/datastore/C-B0027-001",
+      "description": "月平均-地面測站資料"
+    },
+    {
+      "path": "/v1/rest/datastore/C-B0074-001",
+      "description": "氣象測站基本資料-有人氣象測站基本資料"
+    },
+    {
+      "path": "/v1/rest/datastore/C-B0074-002",
+      "description": "氣象測站基本資料-無人氣象測站基本資料"
+    }
+  ],
+  "天氣警特報": [
+    {
+      "path": "/v1/rest/datastore/W-C0033-001",
+      "description": "天氣特報-各別縣市地區目前之天氣警特報情形"
+    },
+    {
+      "path": "/v1/rest/datastore/W-C0033-002",
+      "description": "天氣特報-各別天氣警特報之內容及所影響之區域"
+    },
+    {
+      "path": "/v1/rest/datastore/W-C0034-005",
+      "description": "颱風消息與警報-熱帶氣旋路徑"
+    }
+  ],
+  "數值預報": [
+    {
+      "path": "/v1/rest/datastore/M-A0085-001",
+      "description": "健康氣象-熱傷害指數及警示全台各鄉鎮五日逐三小時預報"
+    }
+  ],
+  "天文": [
+    {
+      "path": "/v1/rest/datastore/A-B0062-001",
+      "description": "日出日沒時刻-全臺各縣市年度逐日日出日沒時刻資料"
+    },
+    {
+      "path": "/v1/rest/datastore/A-B0063-001",
+      "description": "月出月沒時刻-全臺各縣市年度逐日月出月沒時刻資料"
+    }
+  ]
+}
