@@ -16,9 +16,29 @@ for filename in filenames:
     api_blocks = soup.find_all("div", class_="opblock opblock-get is-open")
 
     # 解析並提取所需的信息
-    sections[f"{filename.replace('.html', '')}"] = apis = []
+    cmd = title = f"{filename.replace('.html', '')}"
+    if title == '預報':
+        cmd = 'forecast'
+    elif title == '觀測':
+        cmd = 'observation'
+    elif title == '地震海嘯':
+        cmd = 'earthquake'
+    elif title == '氣候':
+        cmd = 'climate'
+    elif title == '天氣警特報':
+        cmd = 'alert'
+    elif title == '數值預報':
+        cmd = 'numerical_forecast'
+    elif title == '天文':
+        cmd = 'astronomy'
+    else:
+        raise NotImplementedError
+
+    sections[cmd] = apis = []
     for block in api_blocks:
         api = {
+            'title': title,
+            'cmd': cmd,
             'path': block.find("span", class_="opblock-summary-path").get_text(strip=True),
             'dataId': block.find("span", class_="opblock-summary-path").get_text(strip=True).split('/')[-1],
             'summary': block.find("div", class_="opblock-summary-description").get_text(strip=True),
