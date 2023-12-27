@@ -20,6 +20,7 @@ for filename in filenames:
     for block in api_blocks:
         api = {
             'path': block.find("span", class_="opblock-summary-path").get_text(strip=True),
+            'dataId': block.find("span", class_="opblock-summary-path").get_text(strip=True).split('/')[-1],
             'summary': block.find("div", class_="opblock-summary-description").get_text(strip=True),
             'description': block.find("div", class_="opblock-description").get_text(strip=True),
         }

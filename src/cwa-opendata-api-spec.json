@@ -2,6 +2,7 @@
   "預報": [
     {
       "path": "/v1/rest/datastore/F-C0032-001",
+      "dataId": "F-C0032-001",
       "summary": "一般天氣預報-今明 36 小時天氣預報",
       "description": "臺灣各縣市天氣預報資料及國際都市天氣預報",
       "parameters": [
@@ -69,6 +70,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-001",
+      "dataId": "F-D0047-001",
       "summary": "鄉鎮天氣預報-宜蘭縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -142,6 +144,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-003",
+      "dataId": "F-D0047-003",
       "summary": "鄉鎮天氣預報-宜蘭縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -215,6 +218,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-005",
+      "dataId": "F-D0047-005",
       "summary": "鄉鎮天氣預報-桃園市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -288,6 +292,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-007",
+      "dataId": "F-D0047-007",
       "summary": "鄉鎮天氣預報-桃園市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -361,6 +366,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-009",
+      "dataId": "F-D0047-009",
       "summary": "鄉鎮天氣預報-新竹縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -434,6 +440,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-011",
+      "dataId": "F-D0047-011",
       "summary": "鄉鎮天氣預報-新竹縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -507,6 +514,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-013",
+      "dataId": "F-D0047-013",
       "summary": "鄉鎮天氣預報-苗栗縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -580,6 +588,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-015",
+      "dataId": "F-D0047-015",
       "summary": "鄉鎮天氣預報-苗栗縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -653,6 +662,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-017",
+      "dataId": "F-D0047-017",
       "summary": "鄉鎮天氣預報-彰化縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -726,6 +736,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-019",
+      "dataId": "F-D0047-019",
       "summary": "鄉鎮天氣預報-彰化縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -799,6 +810,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-021",
+      "dataId": "F-D0047-021",
       "summary": "鄉鎮天氣預報-南投縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -872,6 +884,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-023",
+      "dataId": "F-D0047-023",
       "summary": "鄉鎮天氣預報-南投縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -945,6 +958,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-025",
+      "dataId": "F-D0047-025",
       "summary": "鄉鎮天氣預報-雲林縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1018,6 +1032,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-027",
+      "dataId": "F-D0047-027",
       "summary": "鄉鎮天氣預報-雲林縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1091,6 +1106,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-029",
+      "dataId": "F-D0047-029",
       "summary": "鄉鎮天氣預報-嘉義縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1164,6 +1180,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-031",
+      "dataId": "F-D0047-031",
       "summary": "鄉鎮天氣預報-嘉義縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1237,6 +1254,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-033",
+      "dataId": "F-D0047-033",
       "summary": "鄉鎮天氣預報-屏東縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1310,6 +1328,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-035",
+      "dataId": "F-D0047-035",
       "summary": "鄉鎮天氣預報-屏東縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1383,6 +1402,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-037",
+      "dataId": "F-D0047-037",
       "summary": "鄉鎮天氣預報-臺東縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1456,6 +1476,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-039",
+      "dataId": "F-D0047-039",
       "summary": "鄉鎮天氣預報-臺東縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1529,6 +1550,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-041",
+      "dataId": "F-D0047-041",
       "summary": "鄉鎮天氣預報-花蓮縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1602,6 +1624,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-043",
+      "dataId": "F-D0047-043",
       "summary": "鄉鎮天氣預報-花蓮縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1675,6 +1698,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-045",
+      "dataId": "F-D0047-045",
       "summary": "鄉鎮天氣預報-澎湖縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1748,6 +1772,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-047",
+      "dataId": "F-D0047-047",
       "summary": "鄉鎮天氣預報-澎湖縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1821,6 +1846,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-049",
+      "dataId": "F-D0047-049",
       "summary": "鄉鎮天氣預報-基隆市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1894,6 +1920,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-051",
+      "dataId": "F-D0047-051",
       "summary": "鄉鎮天氣預報-基隆市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -1967,6 +1994,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-053",
+      "dataId": "F-D0047-053",
       "summary": "鄉鎮天氣預報-新竹市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2040,6 +2068,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-055",
+      "dataId": "F-D0047-055",
       "summary": "鄉鎮天氣預報-新竹市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2113,6 +2142,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-057",
+      "dataId": "F-D0047-057",
       "summary": "鄉鎮天氣預報-嘉義市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2186,6 +2216,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-059",
+      "dataId": "F-D0047-059",
       "summary": "鄉鎮天氣預報-嘉義市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2259,6 +2290,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-061",
+      "dataId": "F-D0047-061",
       "summary": "鄉鎮天氣預報-臺北市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2332,6 +2364,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-063",
+      "dataId": "F-D0047-063",
       "summary": "鄉鎮天氣預報-臺北市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2405,6 +2438,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-065",
+      "dataId": "F-D0047-065",
       "summary": "鄉鎮天氣預報-高雄市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2478,6 +2512,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-067",
+      "dataId": "F-D0047-067",
       "summary": "鄉鎮天氣預報-高雄市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2551,6 +2586,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-069",
+      "dataId": "F-D0047-069",
       "summary": "鄉鎮天氣預報-新北市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2624,6 +2660,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-071",
+      "dataId": "F-D0047-071",
       "summary": "鄉鎮天氣預報-新北市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2697,6 +2734,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-073",
+      "dataId": "F-D0047-073",
       "summary": "鄉鎮天氣預報-臺中市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2770,6 +2808,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-075",
+      "dataId": "F-D0047-075",
       "summary": "鄉鎮天氣預報-臺中市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2843,6 +2882,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-077",
+      "dataId": "F-D0047-077",
       "summary": "鄉鎮天氣預報-臺南市未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2916,6 +2956,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-079",
+      "dataId": "F-D0047-079",
       "summary": "鄉鎮天氣預報-臺南市未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -2989,6 +3030,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-081",
+      "dataId": "F-D0047-081",
       "summary": "鄉鎮天氣預報-連江縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -3062,6 +3104,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-083",
+      "dataId": "F-D0047-083",
       "summary": "鄉鎮天氣預報-連江縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -3135,6 +3178,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-085",
+      "dataId": "F-D0047-085",
       "summary": "鄉鎮天氣預報-金門縣未來2天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -3208,6 +3252,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-087",
+      "dataId": "F-D0047-087",
       "summary": "鄉鎮天氣預報-金門縣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)及未來1週天氣預報",
       "parameters": [
@@ -3281,6 +3326,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-089",
+      "dataId": "F-D0047-089",
       "summary": "鄉鎮天氣預報-臺灣未來 2 天天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來2天(逐3小時)",
       "parameters": [
@@ -3354,6 +3400,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-091",
+      "dataId": "F-D0047-091",
       "summary": "鄉鎮天氣預報-臺灣未來1週天氣預報",
       "description": "臺灣各鄉鎮市區預報資料-臺灣各鄉鎮市區未來1週天氣預報",
       "parameters": [
@@ -3427,6 +3474,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-D0047-093",
+      "dataId": "F-D0047-093",
       "summary": "鄉鎮天氣預報-全臺灣各鄉鎮市區預報資料",
       "description": "鄉鎮天氣預報可跨縣市截取單一鄉鎮市區預報資料因應系統負載最多一次可擷取 5 個指定縣市之單一鄉鎮市區預報資料，最少1 個指定縣市之單一鄉鎮市區預報資料。",
       "parameters": [
@@ -3506,6 +3554,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-A0021-001",
+      "dataId": "F-A0021-001",
       "summary": "潮汐預報-未來 1 個月潮汐預報",
       "description": "未來1個月潮汐預報",
       "parameters": [
@@ -3591,6 +3640,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-A0085-002",
+      "dataId": "F-A0085-002",
       "summary": "健康氣象冷傷害指數及警示全臺各鄉鎮五日預報",
       "description": "健康氣象相關預報資料-冷傷害指數及警示全臺各鄉鎮五日預報",
       "parameters": [
@@ -3664,6 +3714,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-A0085-003",
+      "dataId": "F-A0085-003",
       "summary": "健康氣象冷傷害指數及警示全臺各鄉鎮未來72小時逐3小時預報",
       "description": "健康氣象相關數值預報資料-熱傷害分級與綜合溫度熱指數",
       "parameters": [
@@ -3737,6 +3788,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-A0085-004",
+      "dataId": "F-A0085-004",
       "summary": "健康氣象溫差提醒指數及警示全臺各鄉鎮五日預報",
       "description": "健康氣象相關預報資料-健康氣象溫差提醒指數及警示全臺各鄉鎮五日預報",
       "parameters": [
@@ -3810,6 +3862,7 @@
     },
     {
       "path": "/v1/rest/datastore/F-A0085-005",
+      "dataId": "F-A0085-005",
       "summary": "健康氣象溫差提醒指數及警示全臺各鄉鎮未來72小時逐3小時預報",
       "description": "健康氣象相關數值預報資料-健康氣象溫差提醒指數及警示全臺各鄉鎮未來72小時逐3小時預報",
       "parameters": [
@@ -3885,6 +3938,7 @@
   "觀測": [
     {
       "path": "/v1/rest/datastore/O-A0001-001",
+      "dataId": "O-A0001-001",
       "summary": "自動氣象站-氣象觀測資料",
       "description": "自動氣象站資料-無人自動站氣象資料",
       "parameters": [
@@ -3940,6 +3994,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-A0002-001",
+      "dataId": "O-A0002-001",
       "summary": "自動雨量站-雨量觀測資料",
       "description": "自動雨量站資料-無人自動站雨量資料",
       "parameters": [
@@ -3995,6 +4050,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-A0003-001",
+      "dataId": "O-A0003-001",
       "summary": "現在天氣觀測報告-現在天氣觀測報告",
       "description": "現在天氣觀測報告-有人氣象站資料",
       "parameters": [
@@ -4050,6 +4106,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-A0004-001",
+      "dataId": "O-A0004-001",
       "summary": "酸雨 pH 值-每日酸雨 pH 值",
       "description": "氣象站每日酸雨pH值-每月各站的資料",
       "parameters": [
@@ -4123,6 +4180,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-A0005-001",
+      "dataId": "O-A0005-001",
       "summary": "紫外線指數-每日紫外線指數最大值",
       "description": "氣象站每日紫外線指數最大值-每天下午2時左右會提供各站紫外線的當日最大值",
       "parameters": [
@@ -4160,6 +4218,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-A0006-002",
+      "dataId": "O-A0006-002",
       "summary": "臭氧總量觀測資料-台北站",
       "description": "臭氧總量觀測資料-臭氧總量觀測資料(台北)",
       "parameters": [
@@ -4209,6 +4268,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-B0075-001",
+      "dataId": "O-B0075-001",
       "summary": "海象監測資料-48小時浮標站與潮位站海況監測資料",
       "description": "海象監測資料-48小時浮標站與潮位站海況監測資料",
       "parameters": [
@@ -4276,6 +4336,7 @@
     },
     {
       "path": "/v1/rest/datastore/O-B0075-002",
+      "dataId": "O-B0075-002",
       "summary": "海象監測資料-30天浮標站與潮位站海況監測資料",
       "description": "海象監測資料-30天浮標站與潮位站海況監測資料",
       "parameters": [
@@ -4345,6 +4406,7 @@
   "地震海嘯": [
     {
       "path": "/v1/rest/datastore/E-A0014-001",
+      "dataId": "E-A0014-001",
       "summary": "海嘯資訊資料-海嘯資訊資料",
       "description": "海嘯資訊資料",
       "parameters": [
@@ -4412,6 +4474,7 @@
     },
     {
       "path": "/v1/rest/datastore/E-A0015-001",
+      "dataId": "E-A0015-001",
       "summary": "顯著有感地震報告資料-顯著有感地震報告",
       "description": "顯著有感地震報告",
       "parameters": [
@@ -4479,6 +4542,7 @@
     },
     {
       "path": "/v1/rest/datastore/E-A0015-002",
+      "dataId": "E-A0015-002",
       "summary": "顯著有感地震報告資料-顯著有感地震報告(英文)",
       "description": "提供顯著有感地震報告資料-英文版地震報告",
       "parameters": [
@@ -4546,6 +4610,7 @@
     },
     {
       "path": "/v1/rest/datastore/E-A0016-001",
+      "dataId": "E-A0016-001",
       "summary": "小區域有感地震報告資料-小區域有感地震報告",
       "description": "小區域有感地震報告",
       "parameters": [
@@ -4613,6 +4678,7 @@
     },
     {
       "path": "/v1/rest/datastore/E-A0016-002",
+      "dataId": "E-A0016-002",
       "summary": "小區域有感地震報告資料-小區域有感地震報告(英文)",
       "description": "提供小區域有感地震報告資料-英文版地震報告",
       "parameters": [
@@ -4682,6 +4748,7 @@
   "氣候": [
     {
       "path": "/v1/rest/datastore/C-B0025-001",
+      "dataId": "C-B0025-001",
       "summary": "每日雨量-地面測站每日雨量資料",
       "description": "地面測站每日雨量資料-每日雨量",
       "parameters": [
@@ -4749,6 +4816,7 @@
     },
     {
       "path": "/v1/rest/datastore/C-B0027-001",
+      "dataId": "C-B0027-001",
       "summary": "月平均-地面測站資料",
       "description": "月平均-地面測站資料",
       "parameters": [
@@ -4798,6 +4866,7 @@
     },
     {
       "path": "/v1/rest/datastore/C-B0074-001",
+      "dataId": "C-B0074-001",
       "summary": "氣象測站基本資料-有人氣象測站基本資料",
       "description": "氣象測站基本資料-有人氣象測站基本資料",
       "parameters": [
@@ -4841,6 +4910,7 @@
     },
     {
       "path": "/v1/rest/datastore/C-B0074-002",
+      "dataId": "C-B0074-002",
       "summary": "氣象測站基本資料-無人氣象測站基本資料",
       "description": "氣象測站基本資料-無人氣象測站基本資料",
       "parameters": [
@@ -4886,6 +4956,7 @@
   "天氣警特報": [
     {
       "path": "/v1/rest/datastore/W-C0033-001",
+      "dataId": "W-C0033-001",
       "summary": "天氣特報-各別縣市地區目前之天氣警特報情形",
       "description": "天氣特報-各別縣市地區目前之天氣警特報情形",
       "parameters": [
@@ -4929,6 +5000,7 @@
     },
     {
       "path": "/v1/rest/datastore/W-C0033-002",
+      "dataId": "W-C0033-002",
       "summary": "天氣特報-各別天氣警特報之內容及所影響之區域",
       "description": "天氣特報-各別天氣警特報之內容及所影響之區域",
       "parameters": [
@@ -4972,6 +5044,7 @@
     },
     {
       "path": "/v1/rest/datastore/W-C0034-005",
+      "dataId": "W-C0034-005",
       "summary": "颱風消息與警報-熱帶氣旋路徑",
       "description": "西北太平洋地區及南海目前所有活動中熱帶氣旋之資訊-熱帶性低氣壓及颱風過去、現在及未來預報之資訊",
       "parameters": [
@@ -5047,6 +5120,7 @@
   "數值預報": [
     {
       "path": "/v1/rest/datastore/M-A0085-001",
+      "dataId": "M-A0085-001",
       "summary": "健康氣象-熱傷害指數及警示全台各鄉鎮五日逐三小時預報",
       "description": "健康氣象相關數值預報資料-熱傷害分級與綜合溫度熱指數",
       "parameters": [
@@ -5122,6 +5196,7 @@
   "天文": [
     {
       "path": "/v1/rest/datastore/A-B0062-001",
+      "dataId": "A-B0062-001",
       "summary": "日出日沒時刻-全臺各縣市年度逐日日出日沒時刻資料",
       "description": "全臺各縣市每天的日出、日沒及太陽過中天等時刻資料含有日出日沒時之方位及過中天時之仰角資料",
       "parameters": [
@@ -5189,6 +5264,7 @@
     },
     {
       "path": "/v1/rest/datastore/A-B0063-001",
+      "dataId": "A-B0063-001",
       "summary": "月出月沒時刻-全臺各縣市年度逐日月出月沒時刻資料",
       "description": "全臺各縣市每天的月出、月沒及月球過中天等時刻資料含有月出月沒時之方位及過中天時之仰角資料",
       "parameters": [
