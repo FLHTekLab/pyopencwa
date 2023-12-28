@@ -1,6 +1,8 @@
 import click
-from cwa_rest_api_dict import CWA_REST_API_DICT
+import json
 
+with open('cwa-rest-api-dict.json', 'r') as f:
+    CWA_REST_API_DICT = json.load(f)
 
 class CLI(click.MultiCommand):
 

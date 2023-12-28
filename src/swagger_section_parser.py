@@ -85,8 +85,5 @@ for filename in filenames:
         api['parameters'] = parameters
         apis.append(api)
 
-with open('cwa_rest_api_dict.py', 'w', encoding='utf-8') as file:
-    file.write(f"""CWA_REST_API_DICT={json.dumps(sections, indent=2, ensure_ascii=False
-                                                 ).replace("true", "True"
-                                                           ).replace("false", "False")
-    }""")
+with open('cwa-rest-api-dict.json', 'w', encoding='utf-8') as file:
+    file.write(json.dumps(sections, indent=2, ensure_ascii=False))
