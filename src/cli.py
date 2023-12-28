@@ -1,41 +1,33 @@
 import click
-import json
-
-# 读取 JSON 文件
-file_path = 'cwa-opendata-api-spec.json'
-with open(file_path, 'r', encoding='utf-8') as file:
-    data = json.load(file)
+from cwa_rest_api_dict import CWA_REST_API_DICT
 
 
-# 动态创建命令组和子命令
-class ComplexCLI(click.MultiCommand):
+class CLI(click.MultiCommand):
 
     def list_commands(self, ctx):
-        # 返回 JSON 文件的第一级键作为命令组
-        return data.keys()
+        return sorted(CWA_REST_API_DICT.keys())
 
     def get_command(self, ctx, name):
-        # 返回子命令
-        group_data = data.get(name)
-        if not group_data:
-            return None
+        group = CWA_REST_API_DICT[name]
 
-        @click.group(name=name, help=f'Commands for {name}')
-        def group():
+        @click.group(name=name, help=group['title'])
+        def group_command():
             pass
 
-        for item in group_data:
-            cmd_name = item.get('dataId', 'unknown')
-            cmd_help = item.get('summary', 'No description available')
-
-            @group.command(name=cmd_name, help=cmd_help)
+        for api in group['apis']:
+            @click.command(name=api['dataId'], help=api['summary'])
             def sub_command():
-                click.echo(f'Executing {cmd_name} in {name} group')
+                click.echo(f'Running {name} {api["dataId"]}')
 
-        return group
+            group_command.add_command(sub_command)
+
+        return group_command
 
 
-# 创建并执行 CLI
-cli = ComplexCLI(help='This tool interacts with a nested JSON API specification.')
+@click.command(cls=CLI, help='中央氣象署開放資料平臺之資料擷取API')
+def cli():
+    pass
+
+
 if __name__ == '__main__':
     cli()

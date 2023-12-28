@@ -47,7 +47,6 @@ with open(file_path, "r", encoding="utf-8") as file:
                 "summary": api_summary
             })
 
-        
         # 假設 `div` 是你從 `<table class="parameters">` 中找到的 div
         # tables = section.find_all("table", class_="parameters")
         # assert len(tables) >= 1
@@ -75,12 +74,7 @@ with open(file_path, "r", encoding="utf-8") as file:
         <div class="parameter__in">(query)</div>
         </td>"""
 
-
-
         # 注意：div.get('class') 會回傳一個 list，因為一個元素可以有多個 class。如果你知道每個 div 只有一個 class，你可以使用 div.get('class')[0] 來取得該 class。如果一個 div 可以有多個 class，你可能需要稍微修改上面的程式碼來處理這種情況。
 
-
 print(param_classes)
-# with open("cwa-opendata-api-spec.json", "w", encoding="utf-8") as file:
-#     file.write(json.dumps(apis, indent=2, ensure_ascii=False))
 # 這裡可以進行更多的處理，比如搜索特定的元素或提取特定的數據
