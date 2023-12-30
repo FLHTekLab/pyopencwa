@@ -1,5 +1,8 @@
+"""
+dataID: O-A0001-001
+summary: 自動氣象站-氣象觀測資料
+"""
 from dataclasses import dataclass
-
 from marshmallow import Schema, fields, post_load
 
 
@@ -39,6 +42,9 @@ class GeoInfo:
     TownName: str
     CountyCode: str
     TownCode: str
+
+    def __repr__(self):
+        return f'<GeoInfo ({self.CountyName}, {self.TownName})>'
 
     @classmethod
     def load(cls, data: dict):
@@ -314,6 +320,9 @@ class Station:
     ObsTime: ObsTime
     GeoInfo: GeoInfo
     WeatherElement: WeatherElement
+
+    def __repr__(self):
+        return f'<Station ({self.StationName}, {self.StationId}, {self.GeoInfo})>'
 
     @classmethod
     def load(cls, data: dict):
