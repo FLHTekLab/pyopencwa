@@ -1,7 +1,8 @@
 import click
 import json
+import os
 
-with open('cwa-rest-api-dict.json', 'r', encoding='utf-8') as f:
+with open('src/cwa-rest-api-dict.json', 'r', encoding='utf-8') as f:
     CWA_REST_API_DICT = json.load(f)
 
 

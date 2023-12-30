@@ -39,7 +39,7 @@ setup(
     python_requires='>=3.7',
     entry_points={
         "console_scripts": [
-            "cwa=cwagent.cli:cwagentcli",
+            "cwa=cwagent.entrypoints.cli:cwagentcli",
         ],
     },
 )
