@@ -1,9 +1,23 @@
+import os
+
 import click
 import json
-import os
+import logging
+import requests
+import logging.config as logging_config
+from cwagent import config
+
+logging_config.dictConfig(config.logging_config)
+logger = logging.getLogger(__name__)
 
 with open('src/cwa-rest-api-dict.json', 'r', encoding='utf-8') as f:
     CWA_REST_API_DICT = json.load(f)
+
+
+def get_local_storage_filename(data_id: str):
+    if not os.path.exists('.cwagent'):
+        os.mkdir('.cwagent')
+    return f'.cwagent/{data_id}.json'
 
 
 @click.group()
@@ -12,10 +26,24 @@ def cwagentcli():
     pass
 
 
+class CwaApiError(Exception):
+    pass
+
+
 class SwaggerAPICLI(click.MultiCommand):
 
     def list_commands(self, ctx):
         return sorted(CWA_REST_API_DICT.keys())
+
+    # @staticmethod
+    # def _check_local_storage():
+    #     """檢查是否有 local storage folder .cwagent"""
+    #     if not os.path.exists('.cwagent'):
+    #         os.mkdir('.cwagent')
+    #
+    # def _get_local_storage_filename(self, dataId: str):
+    #     self._check_local_storage()
+    #     return f'.cwagent/{dataId}.json'
 
     def get_command(self, ctx, name):
         group = CWA_REST_API_DICT[name]
@@ -28,6 +56,20 @@ class SwaggerAPICLI(click.MultiCommand):
             @click.command(name=_api['dataId'], help=_api['summary'])
             def sub_command():
                 click.echo(f'Running {name} {_api["dataId"]}')
+                logger.debug(f'api path: {config.get_cwa_uri()}{_api["path"]}')
+                logger.debug(f'auth_key: {config.get_cwa_auth_key()}')
+                r = requests.get(
+                    headers={'Authorization': config.get_cwa_auth_key()},
+                    url=f'{config.get_cwa_uri()}{_api["path"]}'
+                )
+                logger.debug(f'{r.status_code} {r.reason}')
+                if r.text.find("{") == 0:
+                    response = r.json()
+                    with open(get_local_storage_filename(_api['dataId']), 'w', encoding='utf-8') as f:
+                        json.dump(response, f, ensure_ascii=False, indent=4)
+                    return response
+                else:
+                    raise CwaApiError(r.text)
 
             group_command.add_command(sub_command)
 

@@ -2,3 +2,5 @@ beautifulsoup4
 lxml
 click
 marshmallow
+python-dotenv
+requests
