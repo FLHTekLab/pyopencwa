@@ -28,6 +28,9 @@ logging_config = {
             "format": "{levelname} {message}",
             "style": "{",
         },
+        "api_timer": {
+            'format': '%(asctime)s, %(message)s'
+        },
         'standard': {
             'format': '[%(levelname)s] %(name)s: %(message)s'
             # 'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
@@ -40,7 +43,16 @@ logging_config = {
             "level": "DEBUG",
             # "stream": "ext://sys.stdout"
         },
-        "file": {
+        "api_timer": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "api_timer",
+            "filename": "cwa-api-timer.log",
+            "maxBytes": 5 * 1024 * 1024,  # 5 MB
+            "backupCount": 3,
+            "level": "INFO",
+            # "stream": "ext://sys.stdout"
+        },
+        "default": {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "simple",
             "filename": "cwagent.log",
@@ -60,6 +72,11 @@ logging_config = {
         },
         "werkzeug": {
             "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False
+        },
+        "api_timer": {
+            "handlers": ["api_timer"],
             "level": "INFO",
             "propagate": False
         },

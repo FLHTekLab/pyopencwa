@@ -33,7 +33,7 @@ setup(
     author=__author__,
     author_email=__email__,
     license="MIT",
-    packages=find_packages(where='src'),
+    packages=find_packages(where=['src', '.']),
     package_dir={'': 'src'},
     install_requires=install_requires,
     python_requires='>=3.7',

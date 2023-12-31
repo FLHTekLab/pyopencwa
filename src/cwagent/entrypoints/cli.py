@@ -1,5 +1,5 @@
 import os
-
+import time
 import click
 import json
 import logging
@@ -9,9 +9,11 @@ from cwagent import config
 
 logging_config.dictConfig(config.logging_config)
 logger = logging.getLogger(__name__)
+timer_logger = logging.getLogger('api_timer')
 
-with open('src/cwa-rest-api-dict.json', 'r', encoding='utf-8') as f:
-    CWA_REST_API_DICT = json.load(f)
+
+class CwaApiError(Exception):
+    pass
 
 
 def get_local_storage_filename(data_id: str):
@@ -20,33 +22,46 @@ def get_local_storage_filename(data_id: str):
     return f'.cwagent/{data_id}.json'
 
 
+def get_cwa_api_response(api_url: str):
+    """取得 cwa api 回應，並解計算http request 執行時間"""
+    start_time = time.time()
+    logger.debug(f'api path: {api_url}')
+    r = requests.get(
+        headers={'Authorization': config.get_cwa_auth_key()},
+        url=api_url
+    )
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    elapsed_time_formatted = format(elapsed_time, '5.2f')  # 将秒数格式化为两位小数
+    timer_logger.info(f'{elapsed_time_formatted}, {api_url}')
+    logger.debug(f'{r.status_code} {r.reason}')
+    if r.text.find("{") == 0:
+        response = r.json()
+        return response
+    else:
+        raise CwaApiError(r.text)
+
+
 @click.group()
-def cwagentcli():
+@click.option('--api-spec-json', default='src/cwa-rest-api-dict.json', help='API specification JSON file')
+def cwagentcli(api_spec_json):
     """中央氣象署開放資料平臺之資料擷取API"""
-    pass
-
-
-class CwaApiError(Exception):
+    logger.debug(f'api_spec_json: {api_spec_json}')
     pass
 
 
 class SwaggerAPICLI(click.MultiCommand):
+    CWA_REST_API_DICT: dict
 
     def list_commands(self, ctx):
-        return sorted(CWA_REST_API_DICT.keys())
-
-    # @staticmethod
-    # def _check_local_storage():
-    #     """檢查是否有 local storage folder .cwagent"""
-    #     if not os.path.exists('.cwagent'):
-    #         os.mkdir('.cwagent')
-    #
-    # def _get_local_storage_filename(self, dataId: str):
-    #     self._check_local_storage()
-    #     return f'.cwagent/{dataId}.json'
+        logger.debug(f'list_cmd ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
+        with open(ctx.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
+            return sorted(json.load(f).keys())
 
     def get_command(self, ctx, name):
-        group = CWA_REST_API_DICT[name]
+        logger.debug(f'get_cmd ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
+        with open(ctx.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
+            group = json.load(f)[name]
 
         @click.group(name=name, help=group['title'])
         def group_command():
@@ -54,22 +69,15 @@ class SwaggerAPICLI(click.MultiCommand):
 
         for _api in group['apis']:
             @click.command(name=_api['dataId'], help=_api['summary'])
-            def sub_command():
-                click.echo(f'Running {name} {_api["dataId"]}')
-                logger.debug(f'api path: {config.get_cwa_uri()}{_api["path"]}')
-                logger.debug(f'auth_key: {config.get_cwa_auth_key()}')
-                r = requests.get(
-                    headers={'Authorization': config.get_cwa_auth_key()},
-                    url=f'{config.get_cwa_uri()}{_api["path"]}'
-                )
-                logger.debug(f'{r.status_code} {r.reason}')
-                if r.text.find("{") == 0:
-                    response = r.json()
-                    with open(get_local_storage_filename(_api['dataId']), 'w', encoding='utf-8') as f:
-                        json.dump(response, f, ensure_ascii=False, indent=4)
-                    return response
-                else:
-                    raise CwaApiError(r.text)
+            @click.option('--api-path', default=_api['path'], help='API path')
+            @click.option('--data-id', default=_api['dataId'], help='API data id')
+            @click.option('--description', default=_api['description'], help='API description')
+            def sub_command(api_path, data_id, description):
+                click.echo(f'Running {name} {description} {get_local_storage_filename(data_id)}')
+                response = get_cwa_api_response(api_url=f'{config.get_cwa_uri()}{api_path}')
+                with open(get_local_storage_filename(data_id), 'w', encoding='utf-8') as fh:
+                    json.dump(response, fh, ensure_ascii=False, indent=4)
+                return response
 
             group_command.add_command(sub_command)
 
@@ -77,7 +85,9 @@ class SwaggerAPICLI(click.MultiCommand):
 
 
 @cwagentcli.command(cls=SwaggerAPICLI, help='中央氣象署開放資料平臺之資料擷取API')
-def api():
+@click.pass_context
+def api(ctx):
+    logger.debug(f'ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
     pass
 
 
