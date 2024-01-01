@@ -164,15 +164,50 @@ def listall():
 
 
 @cwagentcli.group(help='觀測')
-def observation():
+@click.pass_context
+def observation(ctx):
     """觀測"""
+    ctx.ensure_object(dict)
+    ctx.obj['api_spec_json'] = ctx.parent.params["api_spec_json"]
     pass
 
 
 @observation.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出觀測資料"""
     click.echo("觀測資料列表")
+    with open(ctx.parent.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
+        group = json.load(f)['observation']
+    # 列出 group['apis'] 中的所有 dataId
+    for _api in group['apis']:
+        click.echo(f"{_api['dataId']} {_api['summary']}")
+
+
+@observation.command()
+@click.argument('data_id')
+def list_records(data_id):
+    """列出觀測資料"""
+    click.echo("觀測資料列表")
+    local_file = get_local_storage_filename(data_id)
+    if os.path.exists(local_file):
+        with open(local_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if data_id == 'O-A0001-001':
+            # stations = data['records']['Station']
+            stations = sorted(data['records']['Station'], key=lambda station: (station['GeoInfo']['CountyName'], station['GeoInfo']['TownName']))
+            lines = [
+                f"{station['ObsTime']['DateTime']}"
+                f"{station['GeoInfo']['CountyName']:>5}"
+                f"{station['GeoInfo']['TownName']:>10}"
+                f"{station['StationName']:<8}"
+                f"{station['StationId']:>8}"
+                f"{station['WeatherElement']['Weather']:>3}"
+                f"{station['WeatherElement']['AirTemperature']:>5}"
+                f"{station['WeatherElement']['RelativeHumidity']:>5}" for station in stations
+            ]
+            for line in lines:
+                click.echo(line)
 
 
 if __name__ == '__main__':
