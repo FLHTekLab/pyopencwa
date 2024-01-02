@@ -2,6 +2,7 @@ import os
 import time
 import click
 import json
+import math
 import logging
 import requests
 import logging.config as logging_config
@@ -184,6 +185,55 @@ def listall(ctx):
         click.echo(f"{_api['dataId']} {_api['summary']}")
 
 
+def find_nearest_station(target_lat, target_lon):
+    """
+    搜尋目標經緯度最近的氣象站。
+
+    Args:
+      target_lat: 目標經緯度緯度。
+      target_lon: 目標經緯度經度。
+
+    Returns:
+      目標經緯度最近的氣象站資訊。
+    """
+    local_file = get_local_storage_filename('O-A0001-001')
+    if os.path.exists(local_file):
+        with open(local_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        stations = sorted(data['records']['Station'],
+                          key=lambda _station: (_station['GeoInfo']['Coordinates'][1]['StationLatitude'],
+                                                _station['GeoInfo']['Coordinates'][1]['StationLongitude']))
+
+        # 計算每個氣象站與目標經緯度的距離。
+        distances = []
+        for station in stations:
+            station_lat = station['GeoInfo']['Coordinates'][1]['StationLatitude']
+            station_lon = station['GeoInfo']['Coordinates'][1]['StationLongitude']
+            distance = math.sqrt((station_lat - target_lat) ** 2 + (station_lon - target_lon) ** 2)
+            distances.append(distance)
+
+        # 找出距離最小的氣象站。
+        min_index = distances.index(min(distances))
+        return stations[min_index]
+
+
+@observation.command()
+@click.argument('lat', type=float)
+@click.argument('lon', type=float)
+def query_by_geo(lat, lon):
+    """以經緯度座標資訊查詢天氣資訊"""
+    station = find_nearest_station(target_lat=lat, target_lon=lon)
+    click.echo(f"{station['ObsTime']['DateTime']} "
+               f"{station['GeoInfo']['CountyName']} "
+               f"{station['GeoInfo']['TownName']} "
+               f"{station['StationName']} "
+               f"{station['WeatherElement']['Weather']} "
+               f"{station['WeatherElement']['AirTemperature']} "
+               f"{station['WeatherElement']['RelativeHumidity']}% "
+               )
+    pass
+
+
 @observation.command()
 @click.argument('data_id')
 def list_records(data_id):
@@ -195,16 +245,20 @@ def list_records(data_id):
             data = json.load(f)
         if data_id == 'O-A0001-001':
             # stations = data['records']['Station']
-            stations = sorted(data['records']['Station'], key=lambda station: (station['GeoInfo']['CountyName'], station['GeoInfo']['TownName']))
+            stations = sorted(data['records']['Station'],
+                              key=lambda station: (station['GeoInfo']['CountyCode'], station['GeoInfo']['TownCode']))
             lines = [
                 f"{station['ObsTime']['DateTime']}"
-                f"{station['GeoInfo']['CountyName']:>5}"
-                f"{station['GeoInfo']['TownName']:>10}"
+                f"{station['GeoInfo']['CountyName']:>5} "
+                f"{station['GeoInfo']['CountyCode']:>5} "
+                f"{station['GeoInfo']['TownCode']:>10} "
+                f"{station['WeatherElement']['Weather']:>5} "
+                f"{station['WeatherElement']['AirTemperature']:>5} "
+                f"{station['WeatherElement']['RelativeHumidity']:>5} "
+                f"{station['StationId']:<7} "
+                f"{station['GeoInfo']['TownName']:<10}"
                 f"{station['StationName']:<8}"
-                f"{station['StationId']:>8}"
-                f"{station['WeatherElement']['Weather']:>3}"
-                f"{station['WeatherElement']['AirTemperature']:>5}"
-                f"{station['WeatherElement']['RelativeHumidity']:>5}" for station in stations
+                for station in stations
             ]
             for line in lines:
                 click.echo(line)
