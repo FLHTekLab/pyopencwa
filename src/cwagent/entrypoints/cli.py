@@ -29,7 +29,8 @@ def get_cwa_api_response(api_url: str):
     logger.debug(f'api path: {api_url}')
     r = requests.get(
         headers={'Authorization': config.get_cwa_auth_key()},
-        url=api_url
+        url=api_url,
+        verify=False
     )
     end_time = time.time()
     elapsed_time = end_time - start_time
