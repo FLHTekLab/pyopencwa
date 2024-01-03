@@ -8,6 +8,10 @@ def get_cwa_uri():
     return os.getenv("CWA_API_HOST_URI", "https://opendata.cwb.gov.tw/api")
 
 
+def get_api_ssl_check_flag():
+    return True if os.getenv("CWA_API_SSL_CHECK_FLAG") != '0' else False
+
+
 def get_api_uri():
     return os.getenv("API_HOST_URI", "http://127.0.0.1:5000")
 
@@ -76,18 +80,18 @@ logging_config = {
             "propagate": False
         },
         "api_timer": {
-            "handlers": ["api_timer"],
+            "handlers": ["api_timer", "console"],
             "level": "INFO",
-            "propagate": False
-        },
-        "cwagent.entry_points.cli": {
-            "handlers": ["console"],
-            "level": "DEBUG",
             "propagate": False
         },
         "cwagent": {
             "handlers": ["console"],
-            "level": "DEBUG",
+            "level": "INFO",
+            "propagate": False
+        },
+        "cwagent.entrypoints.cli": {
+            "handlers": ["console"],
+            "level": "INFO",
             "propagate": False
         },
         "tests": {

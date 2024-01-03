@@ -23,14 +23,16 @@ def get_local_storage_filename(data_id: str):
     return f'.cwagent/{data_id}.json'
 
 
-def get_cwa_api_response(api_url: str):
+def get_cwa_api_response(api_url: str, params: dict = None):
     """取得 cwa api 回應，並解計算http request 執行時間"""
     start_time = time.time()
-    logger.debug(f'api path: {api_url}')
+    params = params or {}
+    logger.debug(f'api path: {api_url}, params: {params}')
     r = requests.get(
         headers={'Authorization': config.get_cwa_auth_key()},
         url=api_url,
-        verify=False
+        params=params,
+        verify=config.get_api_ssl_check_flag()
     )
     end_time = time.time()
     elapsed_time = end_time - start_time
@@ -61,7 +63,7 @@ class SwaggerAPICLI(click.MultiCommand):
             return sorted(json.load(f).keys())
 
     def get_command(self, ctx, name):
-        logger.debug(f'get_cmd ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
+        # logger.debug(f'get_cmd ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
         with open(ctx.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
             group = json.load(f)[name]
 
@@ -69,19 +71,48 @@ class SwaggerAPICLI(click.MultiCommand):
         def group_command():
             pass
 
-        for _api in group['apis']:
-            @click.command(name=_api['dataId'], help=_api['summary'])
-            @click.option('--api-path', default=_api['path'], help='API path')
-            @click.option('--data-id', default=_api['dataId'], help='API data id')
-            @click.option('--description', default=_api['description'], help='API description')
-            def sub_command(api_path, data_id, description):
-                click.echo(f'Running {name} {description} {get_local_storage_filename(data_id)}')
-                response = get_cwa_api_response(api_url=f'{config.get_cwa_uri()}{api_path}')
-                with open(get_local_storage_filename(data_id), 'w', encoding='utf-8') as fh:
-                    json.dump(response, fh, ensure_ascii=False, indent=4)
-                return response
+        for api_spec in group['apis']:
+            # check if timeFrom parameter in api_spec['parameters']
+            time_from_parameter = None
+            for parameter in api_spec['parameters']:
+                if parameter['name'] == 'timeFrom':
+                    # set value yyyy-MM-dd
+                    time_from_parameter = time.strftime("%Y-%m-%d", time.localtime())
+                    break
+            if time_from_parameter:
+                @click.command(name=api_spec['dataId'], help=api_spec['summary'])
+                @click.option('--api-path', default=api_spec['path'], help='API path')
+                @click.option('--data-id', default=api_spec['dataId'], help='API data id')
+                @click.option('--description', default=api_spec['description'], help='API description')
+                @click.option('--time-from', default=time_from_parameter, help='API timeFrom parameter')
+                def sub_command(api_path, data_id, description, time_from):
+                    click.echo(f'Running {name} {description} {get_local_storage_filename(data_id)}')
 
-            group_command.add_command(sub_command)
+                    response = get_cwa_api_response(
+                        api_url=f'{config.get_cwa_uri()}{api_path}',
+                        params={'timeFrom': time_from}
+                    )
+                    with open(get_local_storage_filename(data_id), 'w', encoding='utf-8') as fh:
+                        json.dump(response, fh, ensure_ascii=False, indent=4)
+                    return response
+
+                group_command.add_command(sub_command)
+            else:
+                @click.command(name=api_spec['dataId'], help=api_spec['summary'])
+                @click.option('--api-path', default=api_spec['path'], help='API path')
+                @click.option('--data-id', default=api_spec['dataId'], help='API data id')
+                @click.option('--description', default=api_spec['description'], help='API description')
+                def sub_command(api_path, data_id, description):
+                    click.echo(f'Running {name} {description} {get_local_storage_filename(data_id)}')
+
+                    response = get_cwa_api_response(
+                        api_url=f'{config.get_cwa_uri()}{api_path}'
+                    )
+                    with open(get_local_storage_filename(data_id), 'w', encoding='utf-8') as fh:
+                        json.dump(response, fh, ensure_ascii=False, indent=4)
+                    return response
+
+                group_command.add_command(sub_command)
 
         return group_command
 
@@ -93,84 +124,161 @@ def api(ctx):
     pass
 
 
+def _print_group_apis(api_spec_json_file, group_name):
+    with open(api_spec_json_file, 'r', encoding='utf-8') as f:
+        group = json.load(f)[group_name]
+    for _api in group['apis']:
+        click.echo(f"{_api['dataId']} {_api['summary']}")
+
+
 @cwagentcli.group(help='天氣警特報')
-def alert():
+@click.pass_context
+def alert(ctx):
     """天氣警特報"""
     pass
 
 
 @alert.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出警特報"""
     click.echo("警特報列表")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='alert')
 
 
 @cwagentcli.group(help='天文')
-def astronomy():
+@click.pass_context
+def astronomy(ctx):
     """天文"""
     pass
 
 
 @astronomy.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出天文資料"""
     click.echo("天文資料列表")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='astronomy')
+
+
+@astronomy.command()
+@click.pass_context
+def list_sunrise(ctx):
+    """列出日出日落資料"""
+    click.echo("日出日落資料列表")
+    local_file = get_local_storage_filename('A-B0062-001')
+    if os.path.exists(local_file):
+        with open(local_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        locations = data['records']['locations']['location']
+        locations = sorted(locations, key=lambda _location: _location['time'][0]['SunRiseTime'])
+        for location in locations:
+            click.echo(
+                f"{location['CountyName']} "
+                f"{location['time'][0]['Date']} "
+                f"SunRise {location['time'][0]['SunRiseTime']} "
+                f"SunSet {location['time'][0]['SunSetTime']} "
+            )
 
 
 @cwagentcli.group(help='氣候')
-def climate():
+@click.pass_context
+def climate(ctx):
     """氣候"""
     pass
 
 
 @climate.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出氣候資料"""
     click.echo("氣候資料列表")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='climate')
 
 
 @cwagentcli.group(help='地震海嘯')
-def earthquake():
+@click.pass_context
+def earthquake(ctx):
     """地震海嘯"""
     pass
 
 
 @earthquake.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出地震海嘯資料"""
     click.echo("地震海嘯資料列表")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='earthquake')
 
 
 @cwagentcli.group(help='預報')
-def forecast():
+@click.pass_context
+def forecast(ctx):
     """預報"""
     pass
 
 
 @forecast.command()
-def listall():
+@click.argument('lat', type=float)
+@click.argument('lon', type=float)
+def forecast_by_geo(lat, lon):
+    station = find_nearest_station(target_lat=lat, target_lon=lon)
+    county_name = station['GeoInfo']['CountyName']
+    local_file = get_local_storage_filename('F-C0032-001')
+    logger.debug(f'local_file: {local_file}')
+    if os.path.exists(local_file):
+        with open(local_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        locations = data['records']['location']
+        location = next((location for location in locations if location['locationName'] == county_name), None)
+        if location:
+            click.echo(f"{location['locationName']} ")
+            elements = location['weatherElement']
+            for element in elements:
+                click.echo(
+                    f"{element['elementName']} "
+                    f"{list(element['time'][0]['parameter'].values()) }"
+                    f"{element['time'][0]['startTime']}-{element['time'][0]['endTime']} "
+                )
+    else:
+        raise
+
+
+
+@forecast.command()
+@click.pass_context
+def listall(ctx):
     """列出預報資料"""
     click.echo("預報資料列表")
+    # with open(ctx.parent.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
+    #     group = json.load(f)['forecast']
+    # # 列出 group['apis'] 中的所有 dataId
+    # for _api in group['apis']:
+    #     click.echo(f"{_api['dataId']} {_api['summary']}")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='forecast')
 
 
 @cwagentcli.group(help='數值預報')
-def health():
+@click.pass_context
+def health(ctx):
     """數值預報"""
     pass
 
 
 @health.command()
-def listall():
+@click.pass_context
+def listall(ctx):
     """列出數值預報資料"""
     click.echo("數值預報資料列表")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='health')
 
 
 @cwagentcli.group(help='觀測')
 @click.pass_context
 def observation(ctx):
     """觀測"""
-    ctx.ensure_object(dict)
-    ctx.obj['api_spec_json'] = ctx.parent.params["api_spec_json"]
+    # ctx.ensure_object(dict)
+    # ctx.obj['api_spec_json'] = ctx.parent.params["api_spec_json"]
     pass
 
 
@@ -179,11 +287,12 @@ def observation(ctx):
 def listall(ctx):
     """列出觀測資料"""
     click.echo("觀測資料列表")
-    with open(ctx.parent.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
-        group = json.load(f)['observation']
-    # 列出 group['apis'] 中的所有 dataId
-    for _api in group['apis']:
-        click.echo(f"{_api['dataId']} {_api['summary']}")
+    # with open(ctx.parent.parent.params["api_spec_json"], 'r', encoding='utf-8') as f:
+    #     group = json.load(f)['observation']
+    # # 列出 group['apis'] 中的所有 dataId
+    # for _api in group['apis']:
+    #     click.echo(f"{_api['dataId']} {_api['summary']}")
+    _print_group_apis(api_spec_json_file=ctx.parent.parent.params["api_spec_json"], group_name='observation')
 
 
 def find_nearest_station(target_lat, target_lon):
@@ -229,8 +338,9 @@ def query_by_geo(lat, lon):
                f"{station['GeoInfo']['TownName']} "
                f"{station['StationName']} "
                f"{station['WeatherElement']['Weather']} "
-               f"{station['WeatherElement']['AirTemperature']} "
+               f"{station['WeatherElement']['AirTemperature']}C "
                f"{station['WeatherElement']['RelativeHumidity']}% "
+               f"降雨 {station['WeatherElement']['Now']['Precipitation']}mm"
                )
     pass
 
