@@ -2,8 +2,10 @@
 dataID: O-A0001-001
 summary: 自動氣象站-氣象觀測資料
 """
+from typing import List
 from dataclasses import dataclass
 from marshmallow import Schema, fields, post_load
+from cwagent.domain import events
 
 
 @dataclass
@@ -315,14 +317,24 @@ class ObsTimeSchema(Schema):
 
 @dataclass
 class Station:
-    StationName: str
-    StationId: str
-    ObsTime: ObsTime
-    GeoInfo: GeoInfo
-    WeatherElement: WeatherElement
+
+    def __init__(
+            self,
+            station_name: str,
+            station_id: str,
+            obs_time: ObsTime,
+            geo_info: GeoInfo,
+            weather_element: WeatherElement
+    ):
+        self.station_name = station_name
+        self.station_id = station_id
+        self.obs_time = obs_time
+        self.geo_info = geo_info
+        self.weather_element = weather_element
+        self.events = []  # type: List[events.Event]
 
     def __repr__(self):
-        return f'<Station ({self.StationName}, {self.StationId}, {self.GeoInfo})>'
+        return f'<Station ({self.station_name}, {self.station_id}, {self.geo_info})>'
 
     @classmethod
     def load(cls, data: dict):
@@ -335,11 +347,11 @@ class Station:
 
 
 class StationSchema(Schema):
-    StationName = fields.Str()
-    StationId = fields.Str()
-    ObsTime = fields.Nested(ObsTimeSchema())
-    GeoInfo = fields.Nested(GeoInfoSchema())
-    WeatherElement = fields.Nested(WeatherElementSchema())
+    station_name = fields.Str(data_key='StationName')
+    station_id = fields.Str(data_key='StationId')
+    obs_time = fields.Nested(ObsTimeSchema(), data_key='ObsTime')
+    geo_info = fields.Nested(GeoInfoSchema(), data_key='GeoInfo')
+    weather_element = fields.Nested(WeatherElementSchema(), data_key='WeatherElement')
 
     @post_load
     def make_station(self, data, **kwargs):
