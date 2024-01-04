@@ -5,7 +5,7 @@ dotenv.load_dotenv()
 
 
 def get_cwa_uri():
-    return os.getenv("CWA_API_HOST_URI", "https://opendata.cwb.gov.tw/api")
+    return os.getenv("CWA_API_HOST_URI", "https://opendata.cwa.gov.tw/api")
 
 
 def get_api_ssl_check_flag():
