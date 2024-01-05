@@ -46,7 +46,7 @@ class GeoInfo:
     TownCode: str
 
     def __repr__(self):
-        return f'<GeoInfo ({self.CountyName}, {self.TownName})>'
+        return f'{self.CountyName}, {self.TownName}'
 
     @classmethod
     def load(cls, data: dict):
@@ -315,8 +315,7 @@ class ObsTimeSchema(Schema):
         return ObsTime(**data)
 
 
-@dataclass
-class Station:
+class StationObservation:
 
     def __init__(
             self,
@@ -331,10 +330,80 @@ class Station:
         self.obs_time = obs_time
         self.geo_info = geo_info
         self.weather_element = weather_element
-        self.events = []  # type: List[events.Event]
+        # self.events = []  # type: List[events.Event]
 
     def __repr__(self):
         return f'<Station ({self.station_name}, {self.station_id}, {self.geo_info})>'
+
+    @classmethod
+    def load(cls, data: dict):
+        _schema = StationObservationSchema()
+        return _schema.load(data)
+
+    def dump(self):
+        _schema = StationObservationSchema()
+        return _schema.dump(self)
+
+
+class StationObservationSchema(Schema):
+    station_name = fields.Str(data_key='StationName')
+    station_id = fields.Str(data_key='StationId')
+    obs_time = fields.Nested(ObsTimeSchema(), data_key='ObsTime')
+    geo_info = fields.Nested(GeoInfoSchema(), data_key='GeoInfo')
+    weather_element = fields.Nested(WeatherElementSchema(), data_key='WeatherElement')
+
+    @post_load
+    def make_station(self, data, **kwargs):
+        return StationObservation(**data)
+
+
+class TimeObservationSchema(Schema):
+    obs_time = fields.Nested(ObsTimeSchema(), data_key='ObsTime')
+    weather_element = fields.Nested(WeatherElementSchema(), data_key='WeatherElement')
+
+    @post_load
+    def make_time_observation(self, data, **kwargs):
+        return TimeObservation(**data)
+
+
+class TimeObservation:
+    def __init__(self, obs_time: ObsTime, weather_element: WeatherElement):
+        self.obs_time = obs_time
+        self.weather_element = weather_element
+
+    @classmethod
+    def load(cls, data: dict):
+        _schema = TimeObservationSchema()
+        return _schema.load(data)
+
+    def dump(self):
+        _schema = TimeObservationSchema()
+        return _schema.dump(self)
+
+
+class StationSchema(Schema):
+    station_id = fields.Str(data_key='StationId')
+    station_name = fields.Str(data_key='StationName')
+    geo_info = fields.Nested(GeoInfoSchema(), data_key='GeoInfo')
+    observations = fields.List(fields.Nested(TimeObservationSchema()), data_key='Observations', load_default=[])
+
+    @post_load
+    def make_station(self, data, **kwargs):
+        return Station(**data)
+
+
+class Station:
+
+    def update_time_observation(self, obs_time: ObsTime, weather_element: WeatherElement):
+        time_observation = TimeObservation(obs_time=obs_time, weather_element=weather_element)
+        self.observations.append(time_observation)
+
+    def __init__(self, station_id: str, station_name: str, geo_info: GeoInfo):
+        self.station_id = station_id
+        self.station_name = station_name
+        self.geo_info = geo_info
+        self.observations = []  # type: List[TimeObservation]
+        self.events = []  # type: List[events.Event]
 
     @classmethod
     def load(cls, data: dict):
@@ -346,19 +415,7 @@ class Station:
         return _schema.dump(self)
 
 
-class StationSchema(Schema):
-    station_name = fields.Str(data_key='StationName')
-    station_id = fields.Str(data_key='StationId')
-    obs_time = fields.Nested(ObsTimeSchema(), data_key='ObsTime')
-    geo_info = fields.Nested(GeoInfoSchema(), data_key='GeoInfo')
-    weather_element = fields.Nested(WeatherElementSchema(), data_key='WeatherElement')
-
-    @post_load
-    def make_station(self, data, **kwargs):
-        return Station(**data)
-
-
-station = {
+_station_observation = {
     "StationName": "鼻頭",
     "StationId": "C0R860",
     "ObsTime": {
@@ -424,8 +481,8 @@ station = {
 }
 
 if __name__ == '__main__':
-    obj = StationSchema().load(station)
+    obj = StationObservationSchema().load(_station_observation)
     # obj = DailyExtremeSchema().load(station["WeatherElement"]["DailyExtreme"])
     # print(type(obj))
-    assert isinstance(obj, Station)
-    assert obj.dump() == station
+    assert isinstance(obj, StationObservation)
+    assert obj.dump() == _station_observation

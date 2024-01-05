@@ -22,17 +22,17 @@ class AbstractUnitOfWork(abc.ABC):
         self._commit()
 
     def collect_new_events(self):
-        for u in self.stations.seen:
-            logger.debug(f"current existing unhandled events {u.events} ")
-            while u.events:
-                yield u.events.pop(0)
-
-    @abc.abstractmethod
-    def _commit(self):
-        raise NotImplementedError
+        for s in self.stations.seen:
+            logger.debug(f"current existing unhandled events {s.events} ")
+            while s.events:
+                yield s.events.pop(0)
 
     @abc.abstractmethod
     def rollback(self):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def _commit(self):
         raise NotImplementedError
 
 
@@ -47,7 +47,7 @@ class JsonFileUnitOfWork(AbstractUnitOfWork):
         if os.path.exists(self._json_file):
             shutil.copyfile(self._json_file, self._origin)
         self.session = self.session_factory(self._json_file)
-        self.users = repository.JsonFileRepository(self.session)
+        self.stations = repository.JsonFileRepository(self.session)
         # self.api_server = FakeApiServer()
         return super().__enter__()
 
@@ -62,15 +62,3 @@ class JsonFileUnitOfWork(AbstractUnitOfWork):
     def rollback(self):
         if os.path.exists(self._origin):
             shutil.copyfile(self._origin, self._json_file)
-
-
-class MemoryUnitOfWork(AbstractUnitOfWork):
-    def __init__(self):
-        self.stations = repository.MemoryRepository()
-        self.committed = False
-
-    def _commit(self):
-        self.committed = True
-
-    def rollback(self):
-        pass

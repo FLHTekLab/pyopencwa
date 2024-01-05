@@ -1,8 +1,8 @@
-from typing import List
-from cwagent.domain import events
-from cwagent.domain.model.observation import Station
-
+from cwagent.domain.model.observation import Station, TimeObservation, StationObservation, GeoInfo
 
 __ALL__ = [
-    "Station"
+    "Station",
+    "TimeObservation",
+    "StationObservation",
+    "GeoInfo",
 ]

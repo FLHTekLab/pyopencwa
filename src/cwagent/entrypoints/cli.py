@@ -6,15 +6,18 @@ import math
 import logging
 import requests
 import logging.config as logging_config
-from cwagent import config
+from cwagent import config, bootstrap
+from cwagent.service_layer import unit_of_work
+from cwagent.adapters import cwa_open_api
 
 logging_config.dictConfig(config.logging_config)
 logger = logging.getLogger(__name__)
 timer_logger = logging.getLogger('api_timer')
-
-
-class CwaApiError(Exception):
-    pass
+bus = bootstrap.bootstrap(
+    uow=unit_of_work.JsonFileUnitOfWork(),
+    start_orm=False,
+    cwa_api=cwa_open_api.CWAOpenAPI()
+)
 
 
 def get_local_storage_filename(data_id: str):
@@ -43,7 +46,7 @@ def get_cwa_api_response(api_url: str, params: dict = None):
         response = r.json()
         return response
     else:
-        raise CwaApiError(r.text)
+        raise cwa_open_api.CwaApiError(r.text)
 
 
 @click.group()
@@ -237,12 +240,11 @@ def forecast_by_geo(lat, lon):
             for element in elements:
                 click.echo(
                     f"{element['elementName']} "
-                    f"{list(element['time'][0]['parameter'].values()) }"
+                    f"{list(element['time'][0]['parameter'].values())}"
                     f"{element['time'][0]['startTime']}-{element['time'][0]['endTime']} "
                 )
     else:
         raise
-
 
 
 @forecast.command()

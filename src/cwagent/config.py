@@ -63,7 +63,7 @@ logging_config = {
             "maxBytes": 5 * 1024 * 1024,  # 5 MB
             "backupCount": 3,
             "level": "INFO"
-        }
+        },
     },
     "root": {
         "handlers": ["console"],
@@ -85,7 +85,7 @@ logging_config = {
             "propagate": False
         },
         "cwagent": {
-            "handlers": ["console"],
+            "handlers": ["console", "default"],
             "level": "INFO",
             "propagate": False
         },
