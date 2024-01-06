@@ -6,7 +6,7 @@ import math
 import logging
 import requests
 import logging.config as logging_config
-from cwagent import config, bootstrap
+from cwagent import config, bootstrap, views
 from cwagent.domain import commands
 from cwagent.service_layer import unit_of_work
 from cwagent.adapters import cwa_open_api
@@ -133,6 +133,41 @@ def pull_ob():
     """擷取所有氣象站觀測資料"""
     bus.handle(commands.PullAllStationObservations())
     click.echo('pull all station observations done')
+
+
+@cwagentcli.command()
+def daemon_start():
+    """執行氣象站觀測資料擷取daemon"""
+    while True:
+        bus.handle(commands.PullAllStationObservations())
+        click.echo('pull all station observations done')
+        time.sleep(60)
+
+
+@cwagentcli.group(help='氣象觀測站')
+def station():
+    pass
+
+
+@station.command()
+def listall():
+    with bus.uow:
+        for s in bus.uow.stations:
+            click.echo(f"{s}")
+        bus.uow.commit()
+
+
+@station.command()
+@click.argument('station_id')
+def report(station_id):
+    """列出氣象站觀測資料"""
+    with bus.uow:
+        s = bus.uow.stations.get_by_station_id(station_id=station_id)
+        if s:
+            click.echo(f"{s}")
+        else:
+            click.echo(f"station_id {station_id} not exist")
+        bus.uow.commit()
 
 
 def _print_group_apis(api_spec_json_file, group_name):
@@ -342,15 +377,15 @@ def find_nearest_station(target_lat, target_lon):
 @click.argument('lon', type=float)
 def query_by_geo(lat, lon):
     """以經緯度座標資訊查詢天氣資訊"""
-    station = find_nearest_station(target_lat=lat, target_lon=lon)
-    click.echo(f"{station['ObsTime']['DateTime']} "
-               f"{station['GeoInfo']['CountyName']} "
-               f"{station['GeoInfo']['TownName']} "
-               f"{station['StationName']} "
-               f"{station['WeatherElement']['Weather']} "
-               f"{station['WeatherElement']['AirTemperature']}C "
-               f"{station['WeatherElement']['RelativeHumidity']}% "
-               f"降雨 {station['WeatherElement']['Now']['Precipitation']}mm"
+    _station = find_nearest_station(target_lat=lat, target_lon=lon)
+    click.echo(f"{_station['ObsTime']['DateTime']} "
+               f"{_station['GeoInfo']['CountyName']} "
+               f"{_station['GeoInfo']['TownName']} "
+               f"{_station['StationName']} "
+               f"{_station['WeatherElement']['Weather']} "
+               f"{_station['WeatherElement']['AirTemperature']}C "
+               f"{_station['WeatherElement']['RelativeHumidity']}% "
+               f"降雨 {_station['WeatherElement']['Now']['Precipitation']}mm"
                )
     pass
 

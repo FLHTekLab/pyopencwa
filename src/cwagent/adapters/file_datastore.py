@@ -36,6 +36,7 @@ class FileDatastore:
 
     def __init__(self, file: str):
         self._file = file
+        self._index = 0  # 新增一個 index 來追蹤迭代的進度
         if os.path.exists(file):
             with open(self._file, 'r') as fh:
                 content = json.loads(fh.read())
@@ -44,6 +45,18 @@ class FileDatastore:
             self._stations = [model.Station.load(data) for data in content]
         else:
             self._stations = []
+
+    def __iter__(self):
+        return iter(self._stations)
+    
+    def __next__(self):
+        if self._index >= len(self._stations):
+            raise StopIteration
+        else:
+            s = self._stations[self._index]
+            self._index += 1
+            return s
+
 
     def commit(self):
         self._save()

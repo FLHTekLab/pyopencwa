@@ -2,6 +2,7 @@ import abc
 import logging
 from typing import Set, List
 from cwagent.domain import model
+from cwagent.adapters import file_datastore
 
 logger = logging.getLogger(__name__)
 
@@ -10,6 +11,20 @@ class AbstractRepository(abc.ABC):
 
     def __init__(self):
         self.seen = set()  # type: Set[model.Station]
+
+    def __iter__(self):
+        return self._iter()
+    
+    def __next__(self):
+        return self._next()
+    
+    @abc.abstractmethod
+    def _iter(self):
+        raise NotImplementedError
+    
+    @abc.abstractmethod
+    def _next(self):
+        raise NotImplementedError
 
     def get_by_station_id(self, station_id: str) -> model.Station:
         s = self._get_by_station_id(station_id=station_id)
@@ -71,6 +86,12 @@ class JsonFileRepository(AbstractRepository):
 
     def _count(self) -> int:
         return self.session.count()
+    
+    def _iter(self):
+        return self.session.__iter__()
+    
+    def _next(self):
+        return self.session.__next__()
 
     def __init__(self, session):
         super().__init__()

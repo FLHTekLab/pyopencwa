@@ -24,6 +24,21 @@ class FakeCWAOpenAPI(cwa_open_api.AbstractCWAOpenAPI):
 class MemoryRepository(repository.AbstractRepository):
     _stations = []  # type: List['model.Station']
 
+    def __init__(self):
+        super().__init__()
+        self._index = 0
+
+    def _iter(self):
+        return iter(self._stations)
+
+    def _next(self):
+        if self._index >= len(self._stations):
+            raise StopIteration
+        else:
+            s = self._stations[self._index]
+            self._index += 1
+            return s
+
     def _get_by_station_id(self, station_id: str) -> model.Station:
         return next((s for s in self._stations if s.station_id == station_id), None)
 

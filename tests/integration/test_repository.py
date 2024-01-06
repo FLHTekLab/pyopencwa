@@ -46,12 +46,22 @@ def test_repository():
     if os.path.exists('.teststore.json'):
         os.remove('.teststore.json')
     repo = repository.JsonFileRepository(session=file_datastore.FileDatastore(file='.teststore.json'))
+
+    # test add
     repo.add(s1)
     repo.add(s2)
     repo.add(s3)
     assert repo.count() == 3
+
+    # test __iter__ and __next__
+    for s in repo:
+        print(s)
+
+    # test delete
     repo.delete(s1.station_id)
     assert repo.count() == 2
+
+    # test get_by_station_id
     verify = repo.get_by_station_id(station_id=id2)
     assert verify.station_id == id2
     assert verify == s2

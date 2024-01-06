@@ -398,6 +398,9 @@ class Station:
         time_observation = TimeObservation(obs_time=obs_time, weather_element=weather_element)
         self.observations.append(time_observation)
 
+    def __repr__(self):
+        return f'<Station ({self.station_id}, {self.station_name}, {self.geo_info}, {len(self.observations)} records)>'
+
     def __eq__(self, other):
         if not isinstance(other, Station):
             return False
