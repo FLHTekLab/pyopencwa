@@ -398,11 +398,25 @@ class Station:
         time_observation = TimeObservation(obs_time=obs_time, weather_element=weather_element)
         self.observations.append(time_observation)
 
-    def __init__(self, station_id: str, station_name: str, geo_info: GeoInfo):
+    def __eq__(self, other):
+        if not isinstance(other, Station):
+            return False
+        return self.station_id == other.station_id
+
+    def __hash__(self):
+        return hash((self.station_id, self.station_name))
+
+    def __init__(
+            self,
+            station_id: str,
+            station_name: str,
+            geo_info: GeoInfo,
+            observations: List[TimeObservation]
+    ):
         self.station_id = station_id
         self.station_name = station_name
         self.geo_info = geo_info
-        self.observations = []  # type: List[TimeObservation]
+        self.observations = observations  # type: List[TimeObservation]
         self.events = []  # type: List[events.Event]
 
     @classmethod

@@ -7,6 +7,7 @@ import logging
 import requests
 import logging.config as logging_config
 from cwagent import config, bootstrap
+from cwagent.domain import commands
 from cwagent.service_layer import unit_of_work
 from cwagent.adapters import cwa_open_api
 
@@ -125,6 +126,13 @@ class SwaggerAPICLI(click.MultiCommand):
 def api(ctx):
     logger.debug(f'ctx.parent.params["api_spec_json"]: {ctx.parent.params["api_spec_json"]}')
     pass
+
+
+@cwagentcli.command()
+def pull_ob():
+    """擷取所有氣象站觀測資料"""
+    bus.handle(commands.PullAllStationObservations())
+    click.echo('pull all station observations done')
 
 
 def _print_group_apis(api_spec_json_file, group_name):

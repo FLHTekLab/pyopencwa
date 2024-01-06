@@ -48,7 +48,7 @@ class CWAOpenAPI(AbstractCWAOpenAPI):
         if r.text.find("{") != 0:
             raise CwaApiError(r.text)
         response = r.json()
-        if response.get('success') is not True:
+        if not response.get('success'):
             raise CwaApiError(response)
         logger.info(f'HTTP GET {api_uri}, {r.status_code}, {elapsed_time_formatted} sec')
         return response

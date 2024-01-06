@@ -37,7 +37,7 @@ class AbstractUnitOfWork(abc.ABC):
 
 
 class JsonFileUnitOfWork(AbstractUnitOfWork):
-    def __init__(self, json_file='.datastore'):
+    def __init__(self, json_file='.datastore.json'):
         super().__init__()
         self._json_file = json_file
         self._origin = f'{json_file}.swap'

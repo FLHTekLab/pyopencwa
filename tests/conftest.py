@@ -22,8 +22,8 @@ def wait_for_webapp_to_come_up():
 @pytest.fixture
 def restart_api():
     logger.info(f'restart_api fixture called')
-    if os.path.exists('.datastore'):
-        os.remove('.datastore')
+    if os.path.exists('.datastore.json'):
+        os.remove('.datastore.json')
     (Path(__file__).parent / "../src/switchbot/entrypoints/flask_app.py").touch()
     time.sleep(0.5)
     wait_for_webapp_to_come_up()

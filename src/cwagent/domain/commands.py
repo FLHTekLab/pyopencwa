@@ -5,6 +5,7 @@ class Command:
     pass
 
 
-class PullAllStationsObservation(Command):
-    """Pull All Stations Observation"""
+@dataclass
+class PullAllStationObservations(Command):
+    """Pull All Station Observations"""
     pass

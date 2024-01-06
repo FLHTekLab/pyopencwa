@@ -14,7 +14,7 @@ JSON_FILE = '.teststore.json'
 class FakeCWAOpenAPI(cwa_open_api.AbstractCWAOpenAPI):
 
     def pull_all_stations_observation(self) -> List[model.StationObservation]:
-        with open('./tests/unit/O-A0001-001.json') as fh:
+        with open('./tests/O-A0001-001.json') as fh:
             content = json.loads(fh.read())
             if not isinstance(content.get('records').get('Station'), list):
                 raise ValueError
@@ -27,14 +27,27 @@ class MemoryRepository(repository.AbstractRepository):
     def _get_by_station_id(self, station_id: str) -> model.Station:
         return next((s for s in self._stations if s.station_id == station_id), None)
 
-    def _add(self, station_id: str, station_name: str, geo_info: dict):
+    def _add(self, s: model.Station):
         station = model.Station(
-            station_id=station_id,
-            station_name=station_name,
-            geo_info=model.GeoInfo.load(geo_info)
+            station_id=s.station_id,
+            station_name=s.station_name,
+            geo_info=s.geo_info,
+            observations=s.observations
         )
         self._stations.append(station)
-        return station
+
+    def _delete(self, station_id: str):
+        n, s = next(((n, s) for n, s in enumerate(self._stations) if s.station_id == station_id), (None, None))
+        if s is None:
+            m = f'station_id {station_id} not exist'
+            logger.warning(m)
+            raise ValueError(m)
+        else:
+            del self._stations[n]
+            logger.info(f'delete station {s}')
+
+    def _count(self) -> int:
+        return len(self._stations)
 
 
 class MemoryUnitOfWork(unit_of_work.AbstractUnitOfWork):
@@ -60,9 +73,9 @@ def bootstrap_test_app():
     )
 
 
-def test_pull_all_stations_observation():
+def test_pull_all_station_observations():
     bus = bootstrap_test_app()
-    bus.handle(commands.PullAllStationsObservation())
+    bus.handle(commands.PullAllStationObservations())
 
     s = bus.uow.stations.get_by_station_id(station_id='C0R890')
     assert s.station_name == '山海'

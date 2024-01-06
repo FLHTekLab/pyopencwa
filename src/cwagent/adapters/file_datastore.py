@@ -11,18 +11,26 @@ logger = logging.getLogger(__name__)
 class FileDatastore:
     _stations = []  # type: List['model.Station']
 
+    def count(self) -> int:
+        return len(self._stations)
+
+    def delete(self, station_id: str):
+        n, s = next(((n, s) for n, s in enumerate(self._stations) if s.station_id == station_id), (None, None))
+        if s is None:
+            m = f'station_id {station_id} not exist'
+            logger.warning(m)
+            raise ValueError(m)
+        else:
+            del self._stations[n]
+            logger.info(f'delete station {s}')
+        self._save()
+
     def get_by_station_id(self, station_id: str) -> model.Station:
         return next((u for u in self._stations if u.station_id == station_id), None)
 
-    def add(self, station_id: str, station_name: str, geo_info_dto: dict) -> model.Station:
-        if self.get_by_station_id(station_id=station_id):
-            raise ValueError(f'station_id {station_id} already exist')
-
-        s = model.Station(
-            station_id=station_id,
-            station_name=station_name,
-            geo_info=model.observation.GeoInfo.load(geo_info_dto)
-        )
+    def add(self, s: model.Station):
+        if self.get_by_station_id(station_id=s.station_id):
+            raise ValueError(f'station_id {s.station_id} already exist')
         self._stations.append(s)
         return s
 
