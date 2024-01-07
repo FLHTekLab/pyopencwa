@@ -5,6 +5,8 @@ summary: 自動氣象站-氣象觀測資料
 from typing import List
 from dataclasses import dataclass
 from marshmallow import Schema, fields, post_load
+
+from cwagent import config
 from cwagent.domain import events
 
 
@@ -396,6 +398,8 @@ class Station:
 
     def update_time_observation(self, obs_time: ObsTime, weather_element: WeatherElement):
         time_observation = TimeObservation(obs_time=obs_time, weather_element=weather_element)
+        if len(self.observations) >= config.get_max_station_observation_count():
+            del self.observations[0]
         self.observations.append(time_observation)
 
     def __repr__(self):

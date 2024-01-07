@@ -4,7 +4,22 @@ import dotenv
 dotenv.load_dotenv()
 
 
+def get_api_uri():
+    return os.getenv("API_HOST_URI", "http://127.0.0.1:5000")
+
+
+def get_cwa_daemon_pull_interval():
+    """cwa daemon-start cmd pull interval, time.sleep(60)  # 60 sec"""
+    return int(os.getenv("CWA_STATION_OB_PULL_INTERVAL", 60 * 10))
+
+
+def get_max_station_observation_count():
+    """cwagent.domain.model.Station.observations max records count"""
+    return int(os.getenv("MAX_STATION_OBSERVATION_COUNT", 24 * 60/6))
+
+
 def get_cwa_uri():
+    """cwa api host uri"""
     return os.getenv("CWA_API_HOST_URI", "https://opendata.cwa.gov.tw/api")
 
 
@@ -12,11 +27,8 @@ def get_api_ssl_check_flag():
     return True if os.getenv("CWA_API_SSL_CHECK_FLAG") != '0' else False
 
 
-def get_api_uri():
-    return os.getenv("API_HOST_URI", "http://127.0.0.1:5000")
-
-
 def get_cwa_auth_key():
+    """cwa api auth key"""
     return os.getenv("CWA_AUTH_KEY", "")
 
 

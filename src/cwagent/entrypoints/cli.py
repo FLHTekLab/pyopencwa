@@ -1,5 +1,6 @@
 import os
 import time
+import datetime
 import click
 import json
 import math
@@ -7,7 +8,7 @@ import logging
 import requests
 import logging.config as logging_config
 from cwagent import config, bootstrap, views
-from cwagent.domain import commands
+from cwagent.domain import commands, model
 from cwagent.service_layer import unit_of_work
 from cwagent.adapters import cwa_open_api
 
@@ -140,8 +141,13 @@ def daemon_start():
     """執行氣象站觀測資料擷取daemon"""
     while True:
         bus.handle(commands.PullAllStationObservations())
-        click.echo('pull all station observations done')
-        time.sleep(60)
+        s = bus.uow.stations.get_by_station_id(station_id='C0AC70')  # 台北信義
+        ob = s.observations[-1]
+        assert isinstance(ob, model.TimeObservation)
+        next_pull_time = datetime.datetime.now() + datetime.timedelta(seconds=config.get_cwa_daemon_pull_interval())
+        click.echo(f'{ob.obs_time.DateTime}, 溫度 {ob.weather_element.AirTemperature}, {s}, '
+                   f'next pull time at {next_pull_time}')
+        time.sleep(config.get_cwa_daemon_pull_interval())
 
 
 @cwagentcli.group(help='氣象觀測站')
