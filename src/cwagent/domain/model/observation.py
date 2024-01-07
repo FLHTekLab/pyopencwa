@@ -2,12 +2,15 @@
 dataID: O-A0001-001
 summary: 自動氣象站-氣象觀測資料
 """
+import logging
 from typing import List
 from dataclasses import dataclass
 from marshmallow import Schema, fields, post_load
 
 from cwagent import config
 from cwagent.domain import events
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -397,10 +400,19 @@ class StationSchema(Schema):
 class Station:
 
     def update_time_observation(self, obs_time: ObsTime, weather_element: WeatherElement):
+        if obs_time.DateTime == "-99":
+            logger.warning(f'ignore invalid time_observation: {obs_time} {weather_element}')
+            return
+
+        # keep station observations within max count
         time_observation = TimeObservation(obs_time=obs_time, weather_element=weather_element)
         if len(self.observations) >= config.get_max_station_observation_count():
             del self.observations[0]
+
+        # todo: check if the observation is duplicated
         self.observations.append(time_observation)
+
+        # todo: check if Precipitation is greater than 0 and trigger event
 
     def __repr__(self):
         return f'<Station ({self.station_id}, {self.station_name}, {self.geo_info}, {len(self.observations)} records)>'
