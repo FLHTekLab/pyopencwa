@@ -409,7 +409,10 @@ class Station:
         if len(self.observations) >= config.get_max_station_observation_count():
             del self.observations[0]
 
-        # todo: check if the observation is duplicated
+        # check if the observation is duplicated
+        if next((_ob for _ob in self.observations if _ob.obs_time.DateTime == obs_time.DateTime), None):
+            logger.debug(f'ignore duplicated time_observation: {obs_time} {weather_element}')
+            return
         self.observations.append(time_observation)
 
         # todo: check if Precipitation is greater than 0 and trigger event
