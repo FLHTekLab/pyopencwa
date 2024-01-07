@@ -8,6 +8,7 @@ from cwagent.domain import model
 
 logger = logging.getLogger(__name__)
 timer_logger = logging.getLogger('timer')
+ob_logger = logging.getLogger('O-A0001-001')
 
 
 class CwaApiError(Exception):
@@ -25,6 +26,7 @@ class CWAOpenAPI(AbstractCWAOpenAPI):
         response = self._get_cwa_api_response(path='/v1/rest/datastore/O-A0001-001', params=None)
         if not isinstance(response.get('records').get('Station'), list):
             raise CwaApiError(f"response.records.Station is not list: {response}")
+        ob_logger.info(f'{response}')
         return [model.StationObservation.load(dto) for dto in response.get('records').get('Station')]
 
     @staticmethod

@@ -159,7 +159,7 @@ def listall():
 
 @station.command()
 @click.argument('station_id')
-def report(station_id):
+def digest(station_id):
     """列出氣象站觀測資料"""
     with bus.uow:
         s = bus.uow.stations.get_by_station_id(station_id=station_id)
@@ -168,6 +168,13 @@ def report(station_id):
         else:
             click.echo(f"station_id {station_id} not exist")
         bus.uow.commit()
+
+
+@station.command()
+@click.argument('station_id')
+def history(station_id):
+    """列出站觀測紀錄的氣象資料"""
+    raise NotImplementedError
 
 
 def _print_group_apis(api_spec_json_file, group_name):

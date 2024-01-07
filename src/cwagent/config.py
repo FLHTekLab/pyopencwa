@@ -35,6 +35,9 @@ logging_config = {
         "api_timer": {
             'format': '%(asctime)s, %(message)s'
         },
+        "api_response": {
+            'format': '%(message)s'
+        },
         'standard': {
             'format': '[%(levelname)s] %(name)s: %(message)s'
             # 'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
@@ -53,6 +56,15 @@ logging_config = {
             "filename": "cwa-api-timer.log",
             "maxBytes": 5 * 1024 * 1024,  # 5 MB
             "backupCount": 3,
+            "level": "INFO",
+            # "stream": "ext://sys.stdout"
+        },
+        "O-A0001-001": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "api_response",
+            "filename": "O-A0001-001.log",
+            "maxBytes": 5 * 1024 * 1024,  # 5 MB
+            "backupCount": 5,
             "level": "INFO",
             # "stream": "ext://sys.stdout"
         },
@@ -81,6 +93,11 @@ logging_config = {
         },
         "api_timer": {
             "handlers": ["api_timer", "console"],
+            "level": "INFO",
+            "propagate": False
+        },
+        "O-A0001-001": {
+            "handlers": ["O-A0001-001"],
             "level": "INFO",
             "propagate": False
         },
