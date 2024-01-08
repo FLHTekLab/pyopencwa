@@ -7,7 +7,7 @@ from cwagent import config
 from cwagent.domain import model
 
 logger = logging.getLogger(__name__)
-timer_logger = logging.getLogger('timer')
+timer_logger = logging.getLogger('api_timer')
 ob_logger = logging.getLogger('O-A0001-001')
 
 

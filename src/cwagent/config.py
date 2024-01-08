@@ -51,8 +51,8 @@ logging_config = {
             'format': '%(message)s'
         },
         'standard': {
-            'format': '[%(levelname)s] %(name)s: %(message)s'
-            # 'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+            # 'format': '[%(levelname)s] %(name)s: %(message)s'
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
         },
     },
     "handlers": {
@@ -76,16 +76,16 @@ logging_config = {
             "formatter": "api_response",
             "filename": "O-A0001-001.log",
             "maxBytes": 5 * 1024 * 1024,  # 5 MB
-            "backupCount": 5,
+            "backupCount": 10,
             "level": "INFO",
             # "stream": "ext://sys.stdout"
         },
         "default": {
             "class": "logging.handlers.RotatingFileHandler",
-            "formatter": "simple",
+            "formatter": "standard",
             "filename": "cwagent.log",
             "maxBytes": 5 * 1024 * 1024,  # 5 MB
-            "backupCount": 3,
+            "backupCount": 5,
             "level": "INFO"
         },
     },
