@@ -22,12 +22,25 @@ class AbstractCWAOpenAPI(abc.ABC):
 
 
 class CWAOpenAPI(AbstractCWAOpenAPI):
+
+    def __init__(self):
+        self._last_ob_time_stamp = None
+
     def pull_all_stations_observation(self) -> List[model.StationObservation]:
         response = self._get_cwa_api_response(path='/v1/rest/datastore/O-A0001-001', params=None)
         if not isinstance(response.get('records').get('Station'), list):
             raise CwaApiError(f"response.records.Station is not list: {response}")
-        ob_logger.info(f'{response}')
-        return [model.StationObservation.load(dto) for dto in response.get('records').get('Station')]
+        st_observations = [model.StationObservation.load(dto) for dto in response.get('records').get('Station')]
+        if len(st_observations) > 0:
+            ob = st_observations[0]
+            assert isinstance(ob, model.StationObservation)
+            if ob.obs_time.DateTime != self._last_ob_time_stamp:
+                self._last_ob_time_stamp = ob.obs_time.DateTime
+                ob_logger.info(f'{response}')
+            else:
+                logger.debug(f'observation duplicated, last {self._last_ob_time_stamp}, new {ob.obs_time.DateTime}')
+                pass
+        return st_observations
 
     @staticmethod
     def _get_cwa_api_response(path: str, params: dict = None):

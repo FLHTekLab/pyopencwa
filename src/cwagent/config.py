@@ -75,7 +75,7 @@ logging_config = {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "api_response",
             "filename": "O-A0001-001.log",
-            "maxBytes": 5 * 1024 * 1024,  # 5 MB
+            "maxBytes": 10 * 1024 * 1024,  # 10 MB
             "backupCount": 10,
             "level": "INFO",
             # "stream": "ext://sys.stdout"
@@ -113,13 +113,18 @@ logging_config = {
             "level": "INFO",
             "propagate": False
         },
-        "cwagent": {
-            "handlers": ["console", "default"],
+        "cwagent.entrypoints.cli": {
+            "handlers": ["console"],
             "level": "INFO",
             "propagate": False
         },
-        "cwagent.entrypoints.cli": {
-            "handlers": ["console"],
+        # "cwagent.adapters.cwa_open_api": {
+        #     "handlers": ["console"],
+        #     "level": "DEBUG",
+        #     "propagate": False
+        # },
+        "cwagent": {
+            "handlers": ["console", "default"],
             "level": "INFO",
             "propagate": False
         },
