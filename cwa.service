@@ -1,0 +1,15 @@
+[Unit]
+Description=CWAgent Daemon Service
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=root
+#EnvironmentFile=/etc/default/yalebox
+ExecStart=/home/flhtek/github/pyopencwa/cwa.sh
+Restart=on-failure
+RestartSec=10
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target
