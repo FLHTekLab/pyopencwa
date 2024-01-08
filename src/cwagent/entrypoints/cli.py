@@ -164,7 +164,7 @@ def listall():
 
 
 @station.command()
-@click.argument('station_id')
+@click.argument('station_id', default='C0AC70')
 def digest(station_id):
     """列出氣象站觀測資料"""
     with bus.uow:
@@ -177,10 +177,13 @@ def digest(station_id):
 
 
 @station.command()
-@click.argument('station_id')
+@click.argument('station_id', default='C0AC70')
 def history(station_id):
     """列出站觀測紀錄的氣象資料"""
-    raise NotImplementedError
+    report = views.station_report_by_station_id(station_id=station_id, uow=bus.uow)
+    click.echo(f"{report['name']} {report['id']} {report['geo_info']}")
+    for row in report.get('observations', []):
+        click.echo(f"{row}")
 
 
 def _print_group_apis(api_spec_json_file, group_name):

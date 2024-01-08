@@ -167,4 +167,4 @@ cython_debug/
 .teststore.json
 .datastore.json
 *.log.*
-
+*.swap
