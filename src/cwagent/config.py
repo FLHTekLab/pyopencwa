@@ -14,8 +14,8 @@ def get_cwa_daemon_pull_interval():
 
 
 def get_max_station_observation_count():
-    """cwagent.domain.model.Station.observations max records count"""
-    return int(os.getenv("MAX_STATION_OBSERVATION_COUNT", 24 * 60/6))
+    """cwagent.domain.model.Station.observations max records count 24/day"""
+    return int(os.getenv("MAX_STATION_OBSERVATION_COUNT", 24 * 1.5))
 
 
 def get_cwa_uri():
