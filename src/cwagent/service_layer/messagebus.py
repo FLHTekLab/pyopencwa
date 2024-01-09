@@ -1,3 +1,5 @@
+import time
+
 from cwagent.domain import commands, events
 import logging
 from typing import Callable, Dict, List, Union, Type
@@ -25,13 +27,16 @@ class MessageBus:
         self.queue = [message]  # type:List[Message]
         while self.queue:
             message = self.queue.pop(0)
-            logger.info(f"handling msg {message} ...")
+            logger.debug(f"handling msg {message} ...")
+            start_time = time.time()
             if isinstance(message, events.Event):
                 self.handle_event(message)
             elif isinstance(message, commands.Command):
                 self.handle_command(message)
             else:
                 raise Exception(f"{message} was not an Event or Command")
+            end_time = time.time()
+            logger.info(f"msg {message} handled, {end_time-start_time:.2f} sec elapsed")
 
     def handle_event(self, event: events.Event):
         for handler in self.event_handlers[type(event)]:
